@@ -1,0 +1,4425 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Backoffice Lib Docs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Backoffice Lib Docs</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Componentes</li>
+  <li class="breadcrumb-item"
+  >
+  DrilldownComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Arquivo</h3>
+</p>
+<p class="comment">
+    <code>projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Descrição</h3>
+    </p>
+    <p class="comment">
+        <p>Este componente exibe um botão estilizado.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">&lt;bo-drilldown [drillDownData]=&quot;&#39;{ header: [ { showFilter: true, type: &#39;cellTemplate&#39;, property: &#39;code&#39;, visible: true, label: &#39;Código&#39;, action: &#39;Link&#39;, }, { showFilter: true, property: &#39;store&#39;, visible: true, label: &#39;Loja&#39;, }, { showFilter: true, property: &#39;name&#39;, visible: true, label: &#39;Nome&#39;, }, { showFilter: true, property: &#39;fantasyName&#39;, visible: true, label: &#39;Nome Fantasia&#39;, }, { showFilter: true, property: &#39;risk&#39;, visible: true, label: &#39;Risco&#39;, }, ], items: [ { code: &#39;API001&#39;, store: &#39;01&#39;, name: &#39;CLIENTE API INCLUSAO&#39;, fantasyName: &#39;CLIENTE API INCLUSAO&#39;, risk: &#39;A&#39;, }, { code: &#39;API002&#39;, store: &#39;01&#39;, name: &#39;CLIENTE API ALTERACAO&#39;, fantasyName: &#39;API ALTERACAO&#39;, risk: &#39;A&#39;, }, { code: &#39;API003&#39;, store: &#39;01&#39;, name: &#39;CLIENTE API EXCLUSAO&#39;, fantasyName: &#39;API EXCLUSAO&#39;, risk: &#39;A&#39;, }, { code: &#39;API005&#39;, store: &#39;01&#39;, name: &#39;API 005 MANUT.COMISSAO ALTERA&#39;, fantasyName: &#39;API005&#39;, risk: &#39;A&#39;, }, { code: &#39;API006&#39;, store: &#39;01&#39;, name: &#39;API006 MANUT.COMISSAO DELETA&#39;, fantasyName: &#39;API006&#39;, risk: &#39;A&#39;, }, { code: &#39;API007&#39;, store: &#39;01&#39;, name: &#39;API007 - MATS030 - ALTERAR&#39;, fantasyName: &#39;API007 MATS030&#39;, risk: &#39;A&#39;, }, { code: &#39;API008&#39;, store: &#39;01&#39;, name: &#39;API008 - MATS030 - DELETAR&#39;, fantasyName: &#39;API008 MATS030&#39;, risk: &#39;A&#39;, }, { code: &#39;BETIM&#39;, store: &#39;01&#39;, name: &#39;LOJA BETIM&#39;, fantasyName: &#39;BETIM  MG&#39;, risk: &#39;A&#39;, }, { code: &#39;C16190&#39;, store: &#39;01&#39;, name: &#39;DSERFINR-16190&#39;, fantasyName: &#39;16190&#39;, risk: &#39;A&#39;, }, { code: &#39;CLIBH&#39;, store: &#39;01&#39;, name: &#39;CLIENTE BELO HORIZONTE&#39;, fantasyName: &#39;BELO HORIZONTE&#39;, risk: &#39;A&#39;, }, ], hasNext: true, }&#39;&quot; [drillDownName]=&quot;&#39;Faturamento&#39;&quot; [exportButton]=&quot;false&quot; [formatExport]=&quot;&#39;pdf;excel&#39;&quot; [drillDownHeight]=&quot;400&quot; &gt;&lt;/bo-drilldown&gt;</code></pre></div>
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>bo-drilldown</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>PoLoadingModule</code>
+                            <code>PoTableModule</code>
+                            <code>PoBreadcrumbModule</code>
+                            <code>CommonModule</code>
+                                <code><a href="../components/ExportButtonComponent.html" target="_self" >ExportButtonComponent</a></code>
+                            <code>PoButtonModule</code>
+                            <code>PoFieldModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./drilldown.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./drilldown.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actions" >actions</a>
+                            </li>
+                            <li>
+                                <a href="#currentPage" >currentPage</a>
+                            </li>
+                            <li>
+                                <a href="#drillBreadcrumbs" >drillBreadcrumbs</a>
+                            </li>
+                            <li>
+                                <a href="#drillColumns" >drillColumns</a>
+                            </li>
+                            <li>
+                                <a href="#drillInitiated" >drillInitiated</a>
+                            </li>
+                            <li>
+                                <a href="#drillIsLoading" >drillIsLoading</a>
+                            </li>
+                            <li>
+                                <a href="#drillItems" >drillItems</a>
+                            </li>
+                            <li>
+                                <a href="#itemsPerPage" >itemsPerPage</a>
+                            </li>
+                            <li>
+                                <a href="#itemsPerPageOptions" >itemsPerPageOptions</a>
+                            </li>
+                            <li>
+                                <a href="#paginatedItems" >paginatedItems</a>
+                            </li>
+                            <li>
+                                <a href="#pagination" >pagination</a>
+                            </li>
+                            <li>
+                                <a href="#selectedItems" >selectedItems</a>
+                            </li>
+                            <li>
+                                <a href="#totalItems" >totalItems</a>
+                            </li>
+                            <li>
+                                <a href="#totalPages" >totalPages</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionEvent" >actionEvent</a>
+                            </li>
+                            <li>
+                                <a href="#addBreadcrumb" >addBreadcrumb</a>
+                            </li>
+                            <li>
+                                <a href="#allSelectedEvent" >allSelectedEvent</a>
+                            </li>
+                            <li>
+                                <a href="#allUnselectedEvent" >allUnselectedEvent</a>
+                            </li>
+                            <li>
+                                <a href="#changeQuantityPerPageEvent" >changeQuantityPerPageEvent</a>
+                            </li>
+                            <li>
+                                <a href="#firstPage" >firstPage</a>
+                            </li>
+                            <li>
+                                <a href="#firstPageEvent" >firstPageEvent</a>
+                            </li>
+                            <li>
+                                <a href="#getAllItems" >getAllItems</a>
+                            </li>
+                            <li>
+                                <a href="#getBackToBreadcrumb" >getBackToBreadcrumb</a>
+                            </li>
+                            <li>
+                                <a href="#getBackToRoot" >getBackToRoot</a>
+                            </li>
+                            <li>
+                                <a href="#getTotalPages" >getTotalPages</a>
+                            </li>
+                            <li>
+                                <a href="#goToPage" >goToPage</a>
+                            </li>
+                            <li>
+                                <a href="#lastPage" >lastPage</a>
+                            </li>
+                            <li>
+                                <a href="#lastPageEvent" >lastPageEvent</a>
+                            </li>
+                            <li>
+                                <a href="#loadMoreItems" >loadMoreItems</a>
+                            </li>
+                            <li>
+                                <a href="#navigateDown" >navigateDown</a>
+                            </li>
+                            <li>
+                                <a href="#navigateUp" >navigateUp</a>
+                            </li>
+                            <li>
+                                <a href="#nextPage" >nextPage</a>
+                            </li>
+                            <li>
+                                <a href="#nextPageEvent" >nextPageEvent</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#onCustomSort" >onCustomSort</a>
+                            </li>
+                            <li>
+                                <a href="#onItemsPerPageChange" >onItemsPerPageChange</a>
+                            </li>
+                            <li>
+                                <a href="#paginateItems" >paginateItems</a>
+                            </li>
+                            <li>
+                                <a href="#paginationByArray" >paginationByArray</a>
+                            </li>
+                            <li>
+                                <a href="#paginationByInput" >paginationByInput</a>
+                            </li>
+                            <li>
+                                <a href="#previousPage" >previousPage</a>
+                            </li>
+                            <li>
+                                <a href="#previousPageEvent" >previousPageEvent</a>
+                            </li>
+                            <li>
+                                <a href="#selectedEvent" >selectedEvent</a>
+                            </li>
+                            <li>
+                                <a href="#unselectedEvent" >unselectedEvent</a>
+                            </li>
+                            <li>
+                                <a href="#updateComponent" >updateComponent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionsData" >actionsData</a>
+                            </li>
+                            <li>
+                                <a href="#allDrillDownData" >allDrillDownData</a>
+                            </li>
+                            <li>
+                                <a href="#drillDownData" >drillDownData</a>
+                            </li>
+                            <li>
+                                <a href="#drillDownHeight" >drillDownHeight</a>
+                            </li>
+                            <li>
+                                <a href="#drillDownName" >drillDownName</a>
+                            </li>
+                            <li>
+                                <a href="#exportButton" >exportButton</a>
+                            </li>
+                            <li>
+                                <a href="#formatExport" >formatExport</a>
+                            </li>
+                            <li>
+                                <a href="#hasActions" >hasActions</a>
+                            </li>
+                            <li>
+                                <a href="#infiniteLoading" >infiniteLoading</a>
+                            </li>
+                            <li>
+                                <a href="#isPaginationByInput" >isPaginationByInput</a>
+                            </li>
+                            <li>
+                                <a href="#isSelectable" >isSelectable</a>
+                            </li>
+                            <li>
+                                <a href="#paginationInput" >paginationInput</a>
+                            </li>
+                            <li>
+                                <a href="#paginationType" >paginationType</a>
+                            </li>
+                            <li>
+                                <a href="#sortable" >sortable</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getActionEvent" >getActionEvent</a>
+                            </li>
+                            <li>
+                                <a href="#getAllItemsToExport" >getAllItemsToExport</a>
+                            </li>
+                            <li>
+                                <a href="#getSelectableEvent" >getSelectableEvent</a>
+                            </li>
+                            <li>
+                                <a href="#hyperlinkClicked" >hyperlinkClicked</a>
+                            </li>
+                            <li>
+                                <a href="#loadMoreClicked" >loadMoreClicked</a>
+                            </li>
+                            <li>
+                                <a href="#onSortColumn" >onSortColumn</a>
+                            </li>
+                            <li>
+                                <a href="#paginateEventClicked" >paginateEventClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Construtor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(changeDetector: ChangeDetectorRef)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="279" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:279</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parâmetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nome</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>changeDetector</td>
+                                                  
+                                                        <td>
+                                                                    <code>ChangeDetectorRef</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actionsData"></a>
+                        <b>actionsData</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/ActionData.html" target="_self" >ActionData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="76" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:76</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Dados das actions do drilldown.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">[{ key: &#39;faturar&#39;, label: &#39;Faturar&#39; }]</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allDrillDownData"></a>
+                        <b>allDrillDownData</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/DrillDownData.html" target="_self" >DrillDownData</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>{
+    header: [&#x27;&#x27;],
+    items: [],
+    hasNext: false,
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="154" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:154</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Todos os dados para export</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">{  header: any[];  items: any[];  hasNext: boolean;  }</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="drillDownData"></a>
+                        <b>drillDownData</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/DrillDownData.html" target="_self" >DrillDownData</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>{
+    header: [&#x27;&#x27;],
+    items: [],
+    hasNext: false,
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="111" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:111</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Dados do Drilldown</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">{  header: any[];  items: any[];  hasNext: boolean;  }</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="drillDownHeight"></a>
+                        <b>drillDownHeight</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>400</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="104" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:104</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Altura/Tamanho da tabela.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">400</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="drillDownName"></a>
+                        <b>drillDownName</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="55" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:55</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Nome do Drilldown, vai aparecer na raiz do breadcrumbs.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">&#39;Faturamento&#39;</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="exportButton"></a>
+                        <b>exportButton</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="62" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:62</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Ativa ou desativa botão de exportar dados.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">false</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formatExport"></a>
+                        <b>formatExport</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="83" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:83</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Escolhe se quer exportar em pdf, excel ou ambos..</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">excel</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasActions"></a>
+                        <b>hasActions</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="69" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:69</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Ativa ou desativa actions no drilldown.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">false</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="infiniteLoading"></a>
+                        <b>infiniteLoading</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="129" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:129</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Flag para verificar se a tabela tem infinite loading.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">false</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isPaginationByInput"></a>
+                        <b>isPaginationByInput</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="136" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:136</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Flag para verificar se a paginação será controlada via Input.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">false</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isSelectable"></a>
+                        <b>isSelectable</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="122" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:122</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Flag para verificar se a tabela é selecionável.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">false</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paginationInput"></a>
+                        <b>paginationInput</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/DrillDownPagination.html" target="_self" >DrillDownPagination</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>{
+    currentPage: 1,
+    itemsPerPage: 8,
+    totalPages: 0,
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="143" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:143</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Dados de paginação fornecidos via Input.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">{ currentPage: 1, itemsPerPage: 8, totalPages: 0 }</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paginationType"></a>
+                        <b>paginationType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>&#x27;loadMore&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="97" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:97</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tipo de paginação da tabela.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">loadmore;pagination</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sortable"></a>
+                        <b>sortable</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="90" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:90</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Flag para verificar se o botão de ordernar está habilitado.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">false</code></pre></div></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getActionEvent"></a>
+                        <b>getActionEvent</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="185" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:185</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento para emitir ação.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getAllItemsToExport"></a>
+                        <b>getAllItemsToExport</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="173" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:173</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento de clique em carregar mais itens.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getSelectableEvent"></a>
+                        <b>getSelectableEvent</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="178" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:178</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento para emitir dados selecionados.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hyperlinkClicked"></a>
+                        <b>hyperlinkClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="163" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:163</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento de clique em um action link.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loadMoreClicked"></a>
+                        <b>loadMoreClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="168" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:168</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento de clique em carregar mais itens.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSortColumn"></a>
+                        <b>onSortColumn</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="180" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:180</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paginateEventClicked"></a>
+                        <b>paginateEventClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="190" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:190</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido ao clicar em ações de paginação (próxima página, página anterior, etc.).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionEvent"></a>
+                    <span class="name">
+                        <span ><b>actionEvent</b></span>
+                        <a href="#actionEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actionEvent(actionType: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="576"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:576</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Evento de ação.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Tipo da ação.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addBreadcrumb"></a>
+                    <span class="name">
+                        <span ><b>addBreadcrumb</b></span>
+                        <a href="#addBreadcrumb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addBreadcrumb(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, clickedValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="482"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:482</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adiciona um breadcrumb para a bandeja de breadcrumbs.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Valor padrão</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Row selecionada (opcional).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>clickedValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>Valor clicado (opcional).</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allSelectedEvent"></a>
+                    <span class="name">
+                        <span ><b>allSelectedEvent</b></span>
+                        <a href="#allSelectedEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>allSelectedEvent(event: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="557"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:557</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retorna todos os itens selecionados.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allUnselectedEvent"></a>
+                    <span class="name">
+                        <span ><b>allUnselectedEvent</b></span>
+                        <a href="#allUnselectedEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>allUnselectedEvent(event: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="566"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:566</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retorna todos os itens desmarcados.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeQuantityPerPageEvent"></a>
+                    <span class="name">
+                        <span ><b>changeQuantityPerPageEvent</b></span>
+                        <a href="#changeQuantityPerPageEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeQuantityPerPageEvent(quantity: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="392"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:392</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Emite o evento para alterar a quantidade de itens por página.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>quantity</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Quantidade de itens por página.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="firstPage"></a>
+                    <span class="name">
+                        <span ><b>firstPage</b></span>
+                        <a href="#firstPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>firstPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="643"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:643</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega para a primeira página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="firstPageEvent"></a>
+                    <span class="name">
+                        <span ><b>firstPageEvent</b></span>
+                        <a href="#firstPageEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>firstPageEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="369"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:369</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Emite o evento para navegar para a primeira página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllItems"></a>
+                    <span class="name">
+                        <span ><b>getAllItems</b></span>
+                        <a href="#getAllItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllItems()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="531"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:531</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBackToBreadcrumb"></a>
+                    <span class="name">
+                        <span ><b>getBackToBreadcrumb</b></span>
+                        <a href="#getBackToBreadcrumb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBackToBreadcrumb(clickedValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="506"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:506</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega de volta para uma breadcrumb especifica.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clickedValue</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Valor clicado.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBackToRoot"></a>
+                    <span class="name">
+                        <span ><b>getBackToRoot</b></span>
+                        <a href="#getBackToRoot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBackToRoot(clickedValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="520"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:520</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega de volta para raiz da tabela.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clickedValue</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Valor clicado.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTotalPages"></a>
+                    <span class="name">
+                        <span ><b>getTotalPages</b></span>
+                        <a href="#getTotalPages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTotalPages()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="609"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:609</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retorna o total de páginas com base no total de itens e itens por página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Número total de páginas.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToPage"></a>
+                    <span class="name">
+                        <span ><b>goToPage</b></span>
+                        <a href="#goToPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToPage(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="597"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:597</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega para uma página específica.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Número da página para navegar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastPage"></a>
+                    <span class="name">
+                        <span ><b>lastPage</b></span>
+                        <a href="#lastPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>lastPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="654"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:654</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega para a última página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastPageEvent"></a>
+                    <span class="name">
+                        <span ><b>lastPageEvent</b></span>
+                        <a href="#lastPageEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>lastPageEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="380"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:380</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Emite o evento para navegar para a última página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMoreItems"></a>
+                    <span class="name">
+                        <span ><b>loadMoreItems</b></span>
+                        <a href="#loadMoreItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadMoreItems()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="471"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:471</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carrega mais itens da lista.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateDown"></a>
+                    <span class="name">
+                        <span ><b>navigateDown</b></span>
+                        <a href="#navigateDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateDown(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, clickedValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="445"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:445</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega um nivel para baixo na hierarquia de drilldown.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Row selecionada.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>clickedValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Dado do link que clicou.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateUp"></a>
+                    <span class="name">
+                        <span ><b>navigateUp</b></span>
+                        <a href="#navigateUp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateUp(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, clickedValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="461"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:461</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega um nivel para cima na hierarquia de drilldown.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Row selecionada.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>clickedValue</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Dado do link que clicou.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextPage"></a>
+                    <span class="name">
+                        <span ><b>nextPage</b></span>
+                        <a href="#nextPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nextPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="617"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:617</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega para a próxima página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextPageEvent"></a>
+                    <span class="name">
+                        <span ><b>nextPageEvent</b></span>
+                        <a href="#nextPageEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nextPageEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="347"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:347</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Emite o evento para navegar para a próxima página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="288"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:288</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook que é chamado quando qualquer propriedade vinculada a dados de uma diretiva é alterada.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>mudanças.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCustomSort"></a>
+                    <span class="name">
+                        <span ><b>onCustomSort</b></span>
+                        <a href="#onCustomSort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCustomSort(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="676"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:676</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onItemsPerPageChange"></a>
+                    <span class="name">
+                        <span ><b>onItemsPerPageChange</b></span>
+                        <a href="#onItemsPerPageChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onItemsPerPageChange(newItemsPerPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="666"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:666</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Atualiza a quantidade de itens por página e reinicia a paginação.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newItemsPerPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Nova quantidade de itens por página.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginateItems"></a>
+                    <span class="name">
+                        <span ><b>paginateItems</b></span>
+                        <a href="#paginateItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>paginateItems()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="584"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:584</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Realiza a paginação dos itens com base na página atual e itens por página.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginationByArray"></a>
+                    <span class="name">
+                        <span ><b>paginationByArray</b></span>
+                        <a href="#paginationByArray"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>paginationByArray()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="336"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:336</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Realiza a paginação com base nos dados do array local.
+Calcula o total de itens e chama o método para paginar os itens.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginationByInput"></a>
+                    <span class="name">
+                        <span ><b>paginationByInput</b></span>
+                        <a href="#paginationByInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>paginationByInput()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="322"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:322</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Realiza a paginação com base nos dados fornecidos via Input.
+Atualiza os itens paginados, página atual, itens por página e total de páginas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previousPage"></a>
+                    <span class="name">
+                        <span ><b>previousPage</b></span>
+                        <a href="#previousPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>previousPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="630"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:630</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Navega para a página anterior.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previousPageEvent"></a>
+                    <span class="name">
+                        <span ><b>previousPageEvent</b></span>
+                        <a href="#previousPageEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>previousPageEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="358"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:358</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Emite o evento para navegar para a página anterior.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedEvent"></a>
+                    <span class="name">
+                        <span ><b>selectedEvent</b></span>
+                        <a href="#selectedEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectedEvent(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="539"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:539</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retorna dados selecionados.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unselectedEvent"></a>
+                    <span class="name">
+                        <span ><b>unselectedEvent</b></span>
+                        <a href="#unselectedEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>unselectedEvent(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="548"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:548</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retorna evento desmarcado.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateComponent"></a>
+                    <span class="name">
+                        <span ><b>updateComponent</b></span>
+                        <a href="#updateComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateComponent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="405"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:405</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Atualiza o componente com novos dados.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actions"></a>
+                    <span class="name">
+                        <span ><b>actions</b></span>
+                        <a href="#actions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Array&lt;PoTableAction&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="48" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentPage"></a>
+                    <span class="name">
+                        <span ><b>currentPage</b></span>
+                        <a href="#currentPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="235" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:235</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Página atual da tabela.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">1</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drillBreadcrumbs"></a>
+                    <span class="name">
+                        <span ><b>drillBreadcrumbs</b></span>
+                        <a href="#drillBreadcrumbs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>PoBreadcrumbItem[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="221" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:221</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p> Níveis de breadcrumbs da bandeja.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">[ { &quot;label&quot;: &quot;Faturamento&quot; }, { &quot;label&quot;: &quot;A00812&quot; }, { &quot;label&quot;: &quot;005024&quot; } ]</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drillColumns"></a>
+                    <span class="name">
+                        <span ><b>drillColumns</b></span>
+                        <a href="#drillColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Array&lt;PoTableColumn&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="207" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:207</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Colunas da tabela.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">[{ &quot;property&quot;: &quot;order&quot;, &quot;label&quot;: &quot;Pedido&quot;, &quot;type&quot;: &quot;link&quot;, &quot;action&quot;: &quot;Link&quot;, &quot;showFilter&quot;: true, &quot;visible&quot;: true }]</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drillInitiated"></a>
+                    <span class="name">
+                        <span ><b>drillInitiated</b></span>
+                        <a href="#drillInitiated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="195" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:195</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p> Flag para verificar se o drilldown foi iniciado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drillIsLoading"></a>
+                    <span class="name">
+                        <span ><b>drillIsLoading</b></span>
+                        <a href="#drillIsLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="279" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:279</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag para verificar se o drilldown está carregando.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drillItems"></a>
+                    <span class="name">
+                        <span ><b>drillItems</b></span>
+                        <a href="#drillItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Array&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="214" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:214</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p> Itens da tabela.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">[{ &quot;order&quot;: &quot;A00812&quot;, &quot;item&quot;: &quot;01&quot;, &quot;sequen&quot;: &quot;01&quot;, &quot;client&quot;: &quot;005024&quot;, &quot;store&quot;: &quot;00&quot;, &quot;name&quot;: &quot;5M COMERCIO ATACADIS&quot;, &quot;product&quot;: &quot;00040065901&quot;, &quot;prodname&quot;: &quot;ACHOC LIQ ITALAC 1L C/ TAMPA&quot;, &quot;prodgroup&quot;: &quot;&quot;, &quot;saleprice&quot;: 3.43, &quot;sale&quot;: 480, &quot;amount&quot;: 1646.4, &quot;lot&quot;: &quot;&quot;, &quot;sublot&quot;: &quot;&quot;, &quot;deliverydate&quot;: &quot;15/02/2022&quot;, &quot;emission&quot;: &quot;15/02/2022&quot;, &quot;paymentterms&quot;: &quot;003&quot;, &quot;amountsc6&quot;: &quot;&quot;, &quot;cfop&quot;: &quot;6603&quot;, &quot;serialnum&quot;: &quot;&quot; }]</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="itemsPerPage"></a>
+                    <span class="name">
+                        <span ><b>itemsPerPage</b></span>
+                        <a href="#itemsPerPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>8</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="242" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:242</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Quantidade de itens exibidos por página.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">8</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="itemsPerPageOptions"></a>
+                    <span class="name">
+                        <span ><b>itemsPerPageOptions</b></span>
+                        <a href="#itemsPerPageOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Array&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[
+    { label: &#x27;10&#x27;, value: 10 },
+    { label: &#x27;20&#x27;, value: 20 },
+    { label: &#x27;50&#x27;, value: 50 },
+    { label: &#x27;100&#x27;, value: 100 },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="270" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:270</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opções de quantidade de itens por página disponíveis para seleção.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">[{ label: &#39;10&#39;, value: 10 }, { label: &#39;20&#39;, value: 20 }]</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginatedItems"></a>
+                    <span class="name">
+                        <span ><b>paginatedItems</b></span>
+                        <a href="#paginatedItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Array&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="263" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:263</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Itens paginados exibidos na tabela.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">[{ &quot;order&quot;: &quot;A00812&quot;, &quot;item&quot;: &quot;01&quot;, &quot;client&quot;: &quot;005024&quot;, &quot;name&quot;: &quot;5M COMERCIO ATACADIS&quot; }]</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pagination"></a>
+                    <span class="name">
+                        <span ><b>pagination</b></span>
+                        <a href="#pagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="228" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:228</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag para verificar se a paginação está ativada.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">false</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedItems"></a>
+                    <span class="name">
+                        <span ><b>selectedItems</b></span>
+                        <a href="#selectedItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="200" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:200</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de itens selecionados.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalItems"></a>
+                    <span class="name">
+                        <span ><b>totalItems</b></span>
+                        <a href="#totalItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="249" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:249</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Total de itens disponíveis na tabela.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">100</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalPages"></a>
+                    <span class="name">
+                        <span ><b>totalPages</b></span>
+                        <a href="#totalPages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="256" class="link-to-prism">projects/bo-lib/src/lib/components/drilldown/drilldown.component.ts:256</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Total de páginas calculado com base no total de itens e itens por página.</p>
+<b>Exemplo :</b><div><pre class="line-numbers"><code class="language-html">10</code></pre></div></div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+  ChangeDetectorRef,
+  ViewChild,
+  input,
+} from &#x27;@angular/core&#x27;;
+import {
+  PoTableModule,
+  PoTableColumn,
+  PoBreadcrumbItem,
+  PoBreadcrumbModule,
+  PoLoadingModule,
+  PoTableAction,
+  PoButtonModule,
+  PoSelectComponent,
+  PoFieldModule,
+} from &#x27;@po-ui/ng-components&#x27;;
+import { ExportButtonComponent } from &#x27;../export-button/export-button.component&#x27;;
+
+/**
+ * Este componente exibe um botão estilizado.
+ *
+ * @example
+ * &lt;bo-drilldown [drillDownData]&#x3D;&quot;&#x27;{ header: [ { showFilter: true, type: &#x27;cellTemplate&#x27;, property: &#x27;code&#x27;, visible: true, label: &#x27;Código&#x27;, action: &#x27;Link&#x27;, }, { showFilter: true, property: &#x27;store&#x27;, visible: true, label: &#x27;Loja&#x27;, }, { showFilter: true, property: &#x27;name&#x27;, visible: true, label: &#x27;Nome&#x27;, }, { showFilter: true, property: &#x27;fantasyName&#x27;, visible: true, label: &#x27;Nome Fantasia&#x27;, }, { showFilter: true, property: &#x27;risk&#x27;, visible: true, label: &#x27;Risco&#x27;, }, ], items: [ { code: &#x27;API001&#x27;, store: &#x27;01&#x27;, name: &#x27;CLIENTE API INCLUSAO&#x27;, fantasyName: &#x27;CLIENTE API INCLUSAO&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;API002&#x27;, store: &#x27;01&#x27;, name: &#x27;CLIENTE API ALTERACAO&#x27;, fantasyName: &#x27;API ALTERACAO&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;API003&#x27;, store: &#x27;01&#x27;, name: &#x27;CLIENTE API EXCLUSAO&#x27;, fantasyName: &#x27;API EXCLUSAO&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;API005&#x27;, store: &#x27;01&#x27;, name: &#x27;API 005 MANUT.COMISSAO ALTERA&#x27;, fantasyName: &#x27;API005&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;API006&#x27;, store: &#x27;01&#x27;, name: &#x27;API006 MANUT.COMISSAO DELETA&#x27;, fantasyName: &#x27;API006&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;API007&#x27;, store: &#x27;01&#x27;, name: &#x27;API007 - MATS030 - ALTERAR&#x27;, fantasyName: &#x27;API007 MATS030&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;API008&#x27;, store: &#x27;01&#x27;, name: &#x27;API008 - MATS030 - DELETAR&#x27;, fantasyName: &#x27;API008 MATS030&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;BETIM&#x27;, store: &#x27;01&#x27;, name: &#x27;LOJA BETIM&#x27;, fantasyName: &#x27;BETIM  MG&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;C16190&#x27;, store: &#x27;01&#x27;, name: &#x27;DSERFINR-16190&#x27;, fantasyName: &#x27;16190&#x27;, risk: &#x27;A&#x27;, }, { code: &#x27;CLIBH&#x27;, store: &#x27;01&#x27;, name: &#x27;CLIENTE BELO HORIZONTE&#x27;, fantasyName: &#x27;BELO HORIZONTE&#x27;, risk: &#x27;A&#x27;, }, ], hasNext: true, }&#x27;&quot; [drillDownName]&#x3D;&quot;&#x27;Faturamento&#x27;&quot; [exportButton]&#x3D;&quot;false&quot; [formatExport]&#x3D;&quot;&#x27;pdf;excel&#x27;&quot; [drillDownHeight]&#x3D;&quot;400&quot; &gt;&lt;/bo-drilldown&gt;
+ */
+
+@Component({
+  selector: &#x27;bo-drilldown&#x27;,
+  standalone: true,
+  imports: [
+    PoLoadingModule,
+    PoTableModule,
+    PoBreadcrumbModule,
+    CommonModule,
+    ExportButtonComponent,
+    PoButtonModule,
+    PoFieldModule,
+  ],
+  templateUrl: &#x27;./drilldown.component.html&#x27;,
+  styleUrl: &#x27;./drilldown.component.css&#x27;,
+})
+export class DrilldownComponent {
+  actions: Array&lt;PoTableAction&gt; &#x3D; [];
+
+  /**
+   * Nome do Drilldown, vai aparecer na raiz do breadcrumbs.
+   * @example
+   * &#x27;Faturamento&#x27;
+   */
+  @Input() drillDownName: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Ativa ou desativa botão de exportar dados.
+   * @example
+   * false
+   */
+  @Input() exportButton: boolean &#x3D; false;
+
+  /**
+   * Ativa ou desativa actions no drilldown.
+   * @example
+   * false
+   */
+  @Input() hasActions: boolean &#x3D; false;
+
+  /**
+   * Dados das actions do drilldown.
+   * @example
+   * [{ key: &#x27;faturar&#x27;, label: &#x27;Faturar&#x27; }]
+   */
+  @Input() actionsData: ActionData[] &#x3D; [];
+
+  /**
+   * Escolhe se quer exportar em pdf, excel ou ambos..
+   * @example
+   * excel
+   */
+  @Input() formatExport: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Flag para verificar se o botão de ordernar está habilitado.
+   * @example
+   * false
+   */
+  @Input() sortable: boolean &#x3D; false;
+
+  /**
+   * Tipo de paginação da tabela.
+   * @example
+   * loadmore;pagination
+   */
+  @Input() paginationType: string &#x3D; &#x27;loadMore&#x27;;
+
+  /**
+   * Altura/Tamanho da tabela.
+   * @example
+   * 400
+   */
+  @Input() drillDownHeight: number &#x3D; 400;
+
+  /**
+   * Dados do Drilldown
+   * @example
+   * {  header: any[];  items: any[];  hasNext: boolean;  }
+   */
+  @Input() drillDownData: DrillDownData &#x3D; {
+    header: [&#x27;&#x27;],
+    items: [],
+    hasNext: false,
+  };
+
+  /**
+   * Flag para verificar se a tabela é selecionável.
+   * @example
+   * false
+   */
+  @Input() isSelectable: boolean &#x3D; false;
+
+  /**
+   * Flag para verificar se a tabela tem infinite loading.
+   * @example
+   * false
+   */
+  @Input() infiniteLoading: boolean &#x3D; false;
+
+  /**
+   * Flag para verificar se a paginação será controlada via Input.
+   * @example
+   * false
+   */
+  @Input() isPaginationByInput: boolean &#x3D; false;
+
+  /**
+   * Dados de paginação fornecidos via Input.
+   * @example
+   * { currentPage: 1, itemsPerPage: 8, totalPages: 0 }
+   */
+  @Input() paginationInput: DrillDownPagination &#x3D; {
+    currentPage: 1,
+    itemsPerPage: 8,
+    totalPages: 0,
+  };
+
+  /**
+   * Todos os dados para export
+   * @example
+   * {  header: any[];  items: any[];  hasNext: boolean;  }
+   */
+  @Input() allDrillDownData: DrillDownData &#x3D; {
+    header: [&#x27;&#x27;],
+    items: [],
+    hasNext: false,
+  };
+
+  /**
+   * Evento de clique em um action link.
+   */
+  @Output() hyperlinkClicked: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  /**
+   * Evento de clique em carregar mais itens.
+   */
+  @Output() loadMoreClicked: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  /**
+   * Evento de clique em carregar mais itens.
+   */
+  @Output() getAllItemsToExport: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  /**
+   * Evento para emitir dados selecionados.
+   */
+  @Output() getSelectableEvent: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  @Output() onSortColumn: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  /**
+   * Evento para emitir ação.
+   */
+  @Output() getActionEvent: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  /**
+   * Evento emitido ao clicar em ações de paginação (próxima página, página anterior, etc.).
+   */
+  @Output() paginateEventClicked: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+
+  /**
+   *  Flag para verificar se o drilldown foi iniciado.
+   */
+  drillInitiated: boolean &#x3D; false;
+
+  /**
+   * Lista de itens selecionados.
+   */
+  selectedItems: any[] &#x3D; [];
+
+  /**
+   * Colunas da tabela.
+   * @example
+   * [{ &quot;property&quot;: &quot;order&quot;, &quot;label&quot;: &quot;Pedido&quot;, &quot;type&quot;: &quot;link&quot;, &quot;action&quot;: &quot;Link&quot;, &quot;showFilter&quot;: true, &quot;visible&quot;: true }]
+   */
+  drillColumns: Array&lt;PoTableColumn&gt; &#x3D; [];
+
+  /**
+   *  Itens da tabela.
+   * @example
+   * [{ &quot;order&quot;: &quot;A00812&quot;, &quot;item&quot;: &quot;01&quot;, &quot;sequen&quot;: &quot;01&quot;, &quot;client&quot;: &quot;005024&quot;, &quot;store&quot;: &quot;00&quot;, &quot;name&quot;: &quot;5M COMERCIO ATACADIS&quot;, &quot;product&quot;: &quot;00040065901&quot;, &quot;prodname&quot;: &quot;ACHOC LIQ ITALAC 1L C/ TAMPA&quot;, &quot;prodgroup&quot;: &quot;&quot;, &quot;saleprice&quot;: 3.43, &quot;sale&quot;: 480, &quot;amount&quot;: 1646.4, &quot;lot&quot;: &quot;&quot;, &quot;sublot&quot;: &quot;&quot;, &quot;deliverydate&quot;: &quot;15/02/2022&quot;, &quot;emission&quot;: &quot;15/02/2022&quot;, &quot;paymentterms&quot;: &quot;003&quot;, &quot;amountsc6&quot;: &quot;&quot;, &quot;cfop&quot;: &quot;6603&quot;, &quot;serialnum&quot;: &quot;&quot; }]
+   */
+  drillItems: Array&lt;any&gt; &#x3D; []; // Itens da tabela.
+
+  /**
+   *  Níveis de breadcrumbs da bandeja.
+   * @example
+   * [ { &quot;label&quot;: &quot;Faturamento&quot; }, { &quot;label&quot;: &quot;A00812&quot; }, { &quot;label&quot;: &quot;005024&quot; } ]
+   */
+  drillBreadcrumbs: PoBreadcrumbItem[] &#x3D; [];
+
+  /**
+   * Flag para verificar se a paginação está ativada.
+   * @example
+   * false
+   */
+  pagination: boolean &#x3D; false;
+
+  /**
+   * Página atual da tabela.
+   * @example
+   * 1
+   */
+  currentPage: number &#x3D; 1;
+
+  /**
+   * Quantidade de itens exibidos por página.
+   * @example
+   * 8
+   */
+  itemsPerPage: number &#x3D; 8;
+
+  /**
+   * Total de itens disponíveis na tabela.
+   * @example
+   * 100
+   */
+  totalItems: number &#x3D; 0;
+
+  /**
+   * Total de páginas calculado com base no total de itens e itens por página.
+   * @example
+   * 10
+   */
+  totalPages: number &#x3D; 0;
+
+  /**
+   * Itens paginados exibidos na tabela.
+   * @example
+   * [{ &quot;order&quot;: &quot;A00812&quot;, &quot;item&quot;: &quot;01&quot;, &quot;client&quot;: &quot;005024&quot;, &quot;name&quot;: &quot;5M COMERCIO ATACADIS&quot; }]
+   */
+  paginatedItems: Array&lt;any&gt; &#x3D; []; // Itens da tabela.
+
+  /**
+   * Opções de quantidade de itens por página disponíveis para seleção.
+   * @example
+   * [{ label: &#x27;10&#x27;, value: 10 }, { label: &#x27;20&#x27;, value: 20 }]
+   */
+  itemsPerPageOptions: Array&lt;{ label: string; value: number }&gt; &#x3D; [
+    { label: &#x27;10&#x27;, value: 10 },
+    { label: &#x27;20&#x27;, value: 20 },
+    { label: &#x27;50&#x27;, value: 50 },
+    { label: &#x27;100&#x27;, value: 100 },
+  ];
+  /**
+   * Flag para verificar se o drilldown está carregando.
+   */
+  drillIsLoading: boolean &#x3D; false;
+
+  constructor(private changeDetector: ChangeDetectorRef) {}
+
+  /**
+   * Lifecycle hook que é chamado quando qualquer propriedade vinculada a dados de uma diretiva é alterada.
+   * @param changes - mudanças.
+   * @autor Matheus Camargo B. da Costa
+   */
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes[&#x27;drillDownData&#x27;]) {
+      const previousValue &#x3D; changes[&#x27;drillDownData&#x27;].previousValue;
+      const currentValue &#x3D; changes[&#x27;drillDownData&#x27;].currentValue;
+      this.pagination &#x3D; this.paginationType &#x3D;&#x3D; &#x27;loadMore&#x27; ? false : true;
+      if (JSON.stringify(previousValue) !&#x3D;&#x3D; JSON.stringify(currentValue)) {
+        this.updateComponent();
+      } else {
+        this.drillIsLoading &#x3D; false;
+      }
+    }
+
+    if (changes[&#x27;allDrillDownData&#x27;]) {
+      const previousValue &#x3D; changes[&#x27;allDrillDownData&#x27;].previousValue;
+      const currentValue &#x3D; changes[&#x27;allDrillDownData&#x27;].currentValue;
+
+      if (JSON.stringify(previousValue) !&#x3D;&#x3D; JSON.stringify(currentValue)) {
+        this.drillIsLoading &#x3D; false;
+      } else {
+        this.drillIsLoading &#x3D; false;
+      }
+    }
+
+    if (!this.drillInitiated) {
+      this.addBreadcrumb();
+      this.drillInitiated &#x3D; true;
+    }
+  }
+
+  /**
+   * Realiza a paginação com base nos dados fornecidos via Input.
+   * Atualiza os itens paginados, página atual, itens por página e total de páginas.
+   * @autor Matheus Camargo B. da Costa
+   */
+  paginationByInput(): void {
+    if(!this.pagination) return;
+
+    this.paginatedItems &#x3D; this.drillDownData.items;
+    this.currentPage &#x3D; this.paginationInput.currentPage;
+    this.itemsPerPage &#x3D; this.paginationInput.itemsPerPage;
+    this.totalPages &#x3D; this.paginationInput.totalPages;
+  }
+
+  /**
+   * Realiza a paginação com base nos dados do array local.
+   * Calcula o total de itens e chama o método para paginar os itens.
+   * @autor Matheus Camargo B. da Costa
+   */
+  paginationByArray(): void {
+    if(!this.pagination) return;
+
+    this.totalItems &#x3D; this.drillDownData.items.length;
+    this.paginateItems();
+  }
+
+  /**
+   * Emite o evento para navegar para a próxima página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  nextPageEvent(): void {
+    if(!this.pagination) return;
+
+    this.drillIsLoading &#x3D; true;
+    this.paginateEventClicked.emit({ type: &#x27;next_page&#x27; });
+  }
+
+  /**
+   * Emite o evento para navegar para a página anterior.
+   * @autor Matheus Camargo B. da Costa
+   */
+  previousPageEvent(): void {
+    if(!this.pagination) return;
+
+    this.drillIsLoading &#x3D; true;
+    this.paginateEventClicked.emit({ type: &#x27;previous_page&#x27; });
+  }
+
+  /**
+   * Emite o evento para navegar para a primeira página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  firstPageEvent(): void {
+    if(!this.pagination) return;
+
+    this.drillIsLoading &#x3D; true;
+    this.paginateEventClicked.emit({ type: &#x27;first_page&#x27; });
+  }
+
+  /**
+   * Emite o evento para navegar para a última página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  lastPageEvent(): void {
+    if(!this.pagination) return;
+
+    this.drillIsLoading &#x3D; true;
+    this.paginateEventClicked.emit({ type: &#x27;last_page&#x27; });
+  }
+
+  /**
+   * Emite o evento para alterar a quantidade de itens por página.
+   * @param quantity - Quantidade de itens por página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  changeQuantityPerPageEvent(quantity: number): void {
+    if(!this.pagination) return;
+    this.drillIsLoading &#x3D; true;
+    this.paginateEventClicked.emit({
+      type: &#x27;change_quantity_per_page&#x27;,
+      value: quantity,
+    });
+  }
+
+  /**
+   * Atualiza o componente com novos dados.
+   * @autor Matheus Camargo B. da Costa
+   */
+  updateComponent(): void {
+    if (
+      this.drillDownData.header.length &#x3D;&#x3D;&#x3D; 0 ||
+      this.drillDownData.items.length &#x3D;&#x3D;&#x3D; 0
+    )
+      return;
+    this.drillColumns &#x3D; this.drillDownData.header.map((column) &#x3D;&gt; {
+      return column.type &#x3D;&#x3D;&#x3D; &#x27;link&#x27;
+        ? { ...column, type: &#x27;cellTemplate&#x27; }
+        : {
+            ...column,
+          };
+    });
+    this.drillItems &#x3D; this.drillDownData.items;
+    this.drillIsLoading &#x3D; false;
+
+    if (!this.isPaginationByInput) this.paginationByArray();
+    else this.paginationByInput();
+
+    if (this.hasActions) {
+      for (let action of this.actionsData) {
+        this.actions.push({
+          icon: action.icon,
+          label: action.label,
+          action: (row: any) &#x3D;&gt; {
+            this.actionEvent(action.key, row);
+          },
+        });
+      }
+    } else {
+      this.actions &#x3D; [];
+    }
+  }
+
+  /**
+   * Navega um nivel para baixo na hierarquia de drilldown.
+   * @param row - Row selecionada.
+   * @param clickedValue - Dado do link que clicou.
+   * @autor Matheus Camargo B. da Costa
+   */
+  navigateDown(row: any, clickedValue: string): void {
+    if (!row || !clickedValue) {
+      console.error(&#x27;Erro: Propriedade inexistente ou valor inválido&#x27;);
+      return;
+    }
+    this.addBreadcrumb(row, clickedValue);
+    this.drillIsLoading &#x3D; true;
+    this.hyperlinkClicked.emit({ row, clickedValue, action: &#x27;Link&#x27; });
+  }
+
+  /**
+   * Navega um nivel para cima na hierarquia de drilldown.
+   * @param row - Row selecionada.
+   * @param clickedValue - Dado do link que clicou.
+   * @autor Matheus Camargo B. da Costa
+   */
+  navigateUp(row: any, clickedValue: any): void {
+    this.getBackToBreadcrumb(clickedValue);
+    this.drillIsLoading &#x3D; true;
+    this.hyperlinkClicked.emit({ row, clickedValue, action: &#x27;Link&#x27; });
+  }
+
+  /**
+   * Carrega mais itens da lista.
+   * @autor Matheus Camargo B. da Costa
+   */
+  loadMoreItems(): void {
+    this.drillIsLoading &#x3D; true;
+    this.loadMoreClicked.emit();
+  }
+
+  /**
+   * Adiciona um breadcrumb para a bandeja de breadcrumbs.
+   * @param row - Row selecionada (opcional).
+   * @param clickedValue - Valor clicado (opcional).
+   * @autor Matheus Camargo B. da Costa
+   */
+  addBreadcrumb(row: any &#x3D; null, clickedValue: string &#x3D; &#x27;&#x27;): void {
+    const breadcrumbItem: PoBreadcrumbItem &#x3D; {
+      label: row &#x3D;&#x3D; null ? this.drillDownName : clickedValue,
+      action: () &#x3D;&gt; {
+        if (row) this.navigateUp(row, clickedValue);
+        else this.getBackToRoot(this.drillDownName);
+      },
+    };
+
+    for (let breacrumb of this.drillBreadcrumbs) {
+      if (breacrumb.label &#x3D;&#x3D;&#x3D; breadcrumbItem.label) {
+        return;
+      }
+    }
+
+    this.drillBreadcrumbs.push(breadcrumbItem);
+    this.changeDetector.detectChanges();
+  }
+
+  /**
+   * Navega de volta para uma breadcrumb especifica.
+   * @param clickedValue - Valor clicado.
+   * @autor Matheus Camargo B. da Costa
+   */
+  getBackToBreadcrumb(clickedValue: any): void {
+    const index &#x3D; this.drillBreadcrumbs.findIndex(
+      (breadcrumb) &#x3D;&gt; breadcrumb.label &#x3D;&#x3D;&#x3D; clickedValue
+    );
+    if (index !&#x3D;&#x3D; -1) {
+      this.drillBreadcrumbs &#x3D; this.drillBreadcrumbs.slice(0, index + 1);
+    }
+  }
+
+  /**
+   * Navega de volta para raiz da tabela.
+   * @param clickedValue - Valor clicado.
+   * @autor Matheus Camargo B. da Costa
+   */
+  getBackToRoot(clickedValue: any): void {
+    const index &#x3D; this.drillBreadcrumbs.findIndex(
+      (breadcrumb) &#x3D;&gt; breadcrumb.label &#x3D;&#x3D;&#x3D; clickedValue
+    );
+    if (index !&#x3D;&#x3D; -1) {
+      this.drillBreadcrumbs &#x3D; this.drillBreadcrumbs.slice(0, index + 1);
+    }
+    this.drillIsLoading &#x3D; true;
+    this.hyperlinkClicked.emit(null);
+  }
+
+  getAllItems(): void {
+    this.getAllItemsToExport.emit();
+  }
+
+  /**
+   * Retorna dados selecionados.
+   * @autor Matheus Camargo B. da Costa
+   */
+  selectedEvent(event: any): void {
+    this.selectedItems.push(event);
+    this.getSelectableEvent.emit(this.selectedItems);
+  }
+
+  /**
+   * Retorna evento desmarcado.
+   * @autor Matheus Camargo B. da Costa
+   */
+  unselectedEvent(event: any): void {
+    this.selectedItems &#x3D; this.selectedItems.filter((item) &#x3D;&gt; item !&#x3D;&#x3D; event);
+    this.getSelectableEvent.emit(this.selectedItems);
+  }
+
+  /**
+   * Retorna todos os itens selecionados.
+   * @autor Matheus Camargo B. da Costa
+   */
+  allSelectedEvent(event: any[]): void {
+    this.selectedItems &#x3D; event;
+    this.getSelectableEvent.emit(this.selectedItems);
+  }
+
+  /**
+   * Retorna todos os itens desmarcados.
+   * @autor Matheus Camargo B. da Costa
+   */
+  allUnselectedEvent(event: any[]): void {
+    this.selectedItems &#x3D; [];
+    this.getSelectableEvent.emit(this.selectedItems);
+  }
+
+  /**
+   * Evento de ação.
+   * @param actionType - Tipo da ação.
+   * @autor Matheus Camargo B. da Costa
+   */
+  actionEvent(actionType: any, row: any): void {
+    this.getActionEvent.emit({ actionType, row });
+  }
+
+  /**
+   * Realiza a paginação dos itens com base na página atual e itens por página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  paginateItems(): void {
+    if(!this.pagination) return;
+    const startIndex &#x3D; (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex &#x3D; startIndex + this.itemsPerPage;
+    this.paginatedItems &#x3D; this.drillDownData.items.slice(startIndex, endIndex);
+    console.log(this.paginatedItems);
+  }
+
+  /**
+   * Navega para uma página específica.
+   * @param page - Número da página para navegar.
+   * @autor Matheus Camargo B. da Costa
+   */
+  goToPage(page: number): void {
+    if(!this.pagination) return;
+    if (page &lt; 1 || page &gt; this.getTotalPages()) return;
+    this.currentPage &#x3D; page;
+    this.paginateItems();
+  }
+
+  /**
+   * Retorna o total de páginas com base no total de itens e itens por página.
+   * @returns Número total de páginas.
+   * @autor Matheus Camargo B. da Costa
+   */
+  getTotalPages(): number {
+    return Math.ceil(this.totalItems / this.itemsPerPage);
+  }
+
+  /**
+   * Navega para a próxima página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  nextPage(): void {
+    if(!this.pagination) return;
+
+    if (this.currentPage &lt; this.getTotalPages()) {
+      this.currentPage++;
+      this.paginateItems();
+    }
+  }
+
+  /**
+   * Navega para a página anterior.
+   * @autor Matheus Camargo B. da Costa
+   */
+  previousPage(): void {
+    if(!this.pagination) return;
+
+    if (this.currentPage &gt; 1) {
+      this.currentPage--;
+      this.paginateItems();
+    }
+  }
+
+  /**
+   * Navega para a primeira página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  firstPage(): void {
+    if(!this.pagination) return;
+
+    this.currentPage &#x3D; 1;
+    this.paginateItems();
+  }
+
+  /**
+   * Navega para a última página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  lastPage(): void {
+    if(!this.pagination) return;
+
+    this.currentPage &#x3D; this.getTotalPages();
+    this.paginateItems();
+  }
+
+  /**
+   * Atualiza a quantidade de itens por página e reinicia a paginação.
+   * @param newItemsPerPage - Nova quantidade de itens por página.
+   * @autor Matheus Camargo B. da Costa
+   */
+  onItemsPerPageChange(newItemsPerPage: number): void {
+    if(!this.pagination) return;
+
+    this.itemsPerPage &#x3D; newItemsPerPage;
+    this.currentPage &#x3D; 1;
+    if (this.isPaginationByInput)
+      this.changeQuantityPerPageEvent(newItemsPerPage);
+    this.paginateItems();
+  }
+
+ onCustomSort(event: any) {
+  // event.column.property contém a coluna clicada
+  // event.type é &#x27;asc&#x27; ou &#x27;desc&#x27;
+  // Chame sua função customizada aqui
+  this.drillItems &#x3D; [];
+  this.onSortColumn.emit({&#x27;column_to_order&#x27;: event.column.property, &#x27;order&#x27;: event.type});
+  this.drillIsLoading &#x3D; true;
+  return false;
+}
+
+}
+
+export interface DrillDownData {
+  header: any[];
+  items: any[];
+  hasNext: boolean;
+}
+
+export interface ActionData {
+  key: string;
+  label: string;
+  icon?: string;
+}
+
+export interface DrillDownPagination {
+  currentPage: number;
+  itemsPerPage: number;
+  totalPages: number;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;wrapper&quot;&gt;
+  &lt;po-loading-overlay *ngIf&#x3D;&quot;drillIsLoading&quot;&gt;&lt;/po-loading-overlay&gt;
+  &lt;po-breadcrumb [p-items]&#x3D;&quot;drillBreadcrumbs&quot;&gt;&lt;/po-breadcrumb&gt;
+  &lt;div&gt;
+    &lt;bo-export-button
+      *ngIf&#x3D;&quot;exportButton&quot;
+      [actions]&#x3D;&quot;formatExport&quot;
+      [dataToExport]&#x3D;&quot;drillItems&quot;
+      [allDataToExport]&#x3D;&quot;allDrillDownData.items&quot;
+      (getAllItemsToExport)&#x3D;&quot;getAllItems()&quot;
+    &gt;&lt;/bo-export-button&gt;
+
+    &lt;!-- Table com load more --&gt;
+    &lt;po-table
+      *ngIf&#x3D;&quot;!pagination&quot;
+      [p-container]&#x3D;&quot;&#x27;true&#x27;&quot;
+      [p-height]&#x3D;&quot;drillDownHeight&quot;
+      [p-selectable]&#x3D;&quot;isSelectable&quot;
+      [p-infinite-scroll]&#x3D;&quot;infiniteLoading&quot;
+      [p-columns]&#x3D;&quot;drillColumns&quot;
+      [p-items]&#x3D;&quot;drillItems&quot;
+      (p-selected)&#x3D;&quot;selectedEvent($event)&quot;
+      (p-unselected)&#x3D;&quot;unselectedEvent($event)&quot;
+      (p-all-selected)&#x3D;&quot;allSelectedEvent($event)&quot;
+      (p-all-unselected)&#x3D;&quot;allUnselectedEvent($event)&quot;
+      [p-actions]&#x3D;&quot;actions&quot;
+      [p-loading-show-more]&#x3D;&quot;drillIsLoading&quot;
+      [p-show-more-disabled]&#x3D;&quot;!drillDownData.hasNext&quot;
+      (p-show-more)&#x3D;&quot;loadMoreItems()&quot;
+      (p-sort-by)&#x3D;&quot;onCustomSort($event)&quot;
+      [p-sort]&#x3D;&quot;sortable&quot;
+    &gt;
+      &lt;ng-template p-table-cell-template let-column&#x3D;&quot;column&quot; let-row&#x3D;&quot;row&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;column.action &#x3D;&#x3D; &#x27;Link&#x27;; else noHyperlink&quot;&gt;
+          &lt;span
+            (click)&#x3D;&quot;navigateDown(row, row[column.property])&quot;
+            class&#x3D;&quot;hyperlink&quot;
+          &gt;
+            {{ row[column.property] }}
+          &lt;/span&gt;
+          &lt;i class&#x3D;&quot;ph ph-fill ph-mouse-left-click noLine&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;ng-template #noHyperlink&gt;
+          {{ row[column.property] }}
+        &lt;/ng-template&gt;
+      &lt;/ng-template&gt;
+    &lt;/po-table&gt;
+
+    &lt;!-- Table com pagination --&gt;
+
+    &lt;po-table
+      *ngIf&#x3D;&quot;pagination&quot;
+      [p-container]&#x3D;&quot;&#x27;true&#x27;&quot;
+      [p-height]&#x3D;&quot;drillDownHeight&quot;
+      [p-height]&#x3D;&quot;drillDownHeight&quot;
+      [p-selectable]&#x3D;&quot;isSelectable&quot;
+      [p-columns]&#x3D;&quot;drillColumns&quot;
+      [p-items]&#x3D;&quot;paginatedItems&quot;
+      (p-selected)&#x3D;&quot;selectedEvent($event)&quot;
+      (p-unselected)&#x3D;&quot;unselectedEvent($event)&quot;
+      (p-all-selected)&#x3D;&quot;allSelectedEvent($event)&quot;
+      (p-all-unselected)&#x3D;&quot;allUnselectedEvent($event)&quot;
+      [p-actions]&#x3D;&quot;actions&quot;
+      [p-loading-show-more]&#x3D;&quot;drillIsLoading&quot;
+      (p-sort-by)&#x3D;&quot;onCustomSort($event)&quot;
+      [p-sort]&#x3D;&quot;sortable&quot;      
+    &gt;
+      &lt;ng-template p-table-cell-template let-column&#x3D;&quot;column&quot; let-row&#x3D;&quot;row&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;column.action &#x3D;&#x3D; &#x27;Link&#x27;; else noHyperlink&quot;&gt;
+          &lt;span
+            (click)&#x3D;&quot;navigateDown(row, row[column.property])&quot;
+            class&#x3D;&quot;hyperlink&quot;
+          &gt;
+            {{ row[column.property] }}
+          &lt;/span&gt;
+          &lt;i class&#x3D;&quot;ph ph-fill ph-mouse-left-click noLine&quot;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;ng-template #noHyperlink&gt;
+          {{ row[column.property] }}
+        &lt;/ng-template&gt;
+      &lt;/ng-template&gt;
+    &lt;/po-table&gt;
+    &lt;!-- Pagination interno por array --&gt;
+    &lt;div
+      class&#x3D;&quot;pagination-controls&quot;
+      *ngIf&#x3D;&quot;paginationType &#x3D;&#x3D;&#x3D; &#x27;pagination&#x27; &amp;&amp; !isPaginationByInput&quot;
+    &gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Primeira&quot;
+        (p-click)&#x3D;&quot;firstPage()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; 1&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Anterior&quot;
+        (p-click)&#x3D;&quot;previousPage()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; 1&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;span&gt;Página {{ currentPage }} de {{ getTotalPages() }}&lt;/span&gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Próxima&quot;
+        (p-click)&#x3D;&quot;nextPage()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; getTotalPages()&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Última&quot;
+        (p-click)&#x3D;&quot;lastPage()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; getTotalPages()&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;po-select
+        class&#x3D;&quot;select-qtde&quot;
+        [p-options]&#x3D;&quot;itemsPerPageOptions&quot;
+        (p-change)&#x3D;&quot;onItemsPerPageChange($event)&quot;
+      &gt;&lt;/po-select&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Pagination com event output --&gt;
+    &lt;div class&#x3D;&quot;pagination-controls&quot; *ngIf&#x3D;&quot;paginationType &#x3D;&#x3D;&#x3D; &#x27;pagination&#x27; &amp;&amp; isPaginationByInput&quot;&gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Primeira&quot;
+        (p-click)&#x3D;&quot;firstPageEvent()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; 1&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Anterior&quot;
+        (p-click)&#x3D;&quot;previousPageEvent()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; 1&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;span&gt;Página {{ currentPage }} de {{ totalPages }}&lt;/span&gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Próxima&quot;
+        (p-click)&#x3D;&quot;nextPageEvent()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; totalPages&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;po-button
+        p-label&#x3D;&quot;Última&quot;
+        (p-click)&#x3D;&quot;lastPageEvent()&quot;
+        [p-disabled]&#x3D;&quot;currentPage &#x3D;&#x3D;&#x3D; totalPages&quot;
+      &gt;&lt;/po-button&gt;
+      &lt;po-select class&#x3D;&quot;select-qtde&quot;
+        [p-options]&#x3D;&quot;itemsPerPageOptions&quot;
+        (p-change)&#x3D;&quot;changeQuantityPerPageEvent($event)&quot;
+      &gt;&lt;/po-select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento HTML</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento HTML com diretiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="wrapper">  <po-loading-overlay *ngIf="drillIsLoading"></po-loading-overlay>  <po-breadcrumb [p-items]="drillBreadcrumbs"></po-breadcrumb>  <div>    <bo-export-button      *ngIf="exportButton"      [actions]="formatExport"      [dataToExport]="drillItems"      [allDataToExport]="allDrillDownData.items"      (getAllItemsToExport)="getAllItems()"    ></bo-export-button>    <!-- Table com load more -->    <po-table      *ngIf="!pagination"      [p-container]="\'true\'"      [p-height]="drillDownHeight"      [p-selectable]="isSelectable"      [p-infinite-scroll]="infiniteLoading"      [p-columns]="drillColumns"      [p-items]="drillItems"      (p-selected)="selectedEvent($event)"      (p-unselected)="unselectedEvent($event)"      (p-all-selected)="allSelectedEvent($event)"      (p-all-unselected)="allUnselectedEvent($event)"      [p-actions]="actions"      [p-loading-show-more]="drillIsLoading"      [p-show-more-disabled]="!drillDownData.hasNext"      (p-show-more)="loadMoreItems()"      (p-sort-by)="onCustomSort($event)"      [p-sort]="sortable"    >      <ng-template p-table-cell-template let-column="column" let-row="row">        <div *ngIf="column.action == \'Link\'; else noHyperlink">          <span            (click)="navigateDown(row, row[column.property])"            class="hyperlink"          >            {{ row[column.property] }}          </span>          <i class="ph ph-fill ph-mouse-left-click noLine"></i>        </div>        <ng-template #noHyperlink>          {{ row[column.property] }}        </ng-template>      </ng-template>    </po-table>    <!-- Table com pagination -->    <po-table      *ngIf="pagination"      [p-container]="\'true\'"      [p-height]="drillDownHeight"      [p-height]="drillDownHeight"      [p-selectable]="isSelectable"      [p-columns]="drillColumns"      [p-items]="paginatedItems"      (p-selected)="selectedEvent($event)"      (p-unselected)="unselectedEvent($event)"      (p-all-selected)="allSelectedEvent($event)"      (p-all-unselected)="allUnselectedEvent($event)"      [p-actions]="actions"      [p-loading-show-more]="drillIsLoading"      (p-sort-by)="onCustomSort($event)"      [p-sort]="sortable"          >      <ng-template p-table-cell-template let-column="column" let-row="row">        <div *ngIf="column.action == \'Link\'; else noHyperlink">          <span            (click)="navigateDown(row, row[column.property])"            class="hyperlink"          >            {{ row[column.property] }}          </span>          <i class="ph ph-fill ph-mouse-left-click noLine"></i>        </div>        <ng-template #noHyperlink>          {{ row[column.property] }}        </ng-template>      </ng-template>    </po-table>    <!-- Pagination interno por array -->    <div      class="pagination-controls"      *ngIf="paginationType === \'pagination\' && !isPaginationByInput"    >      <po-button        p-label="Primeira"        (p-click)="firstPage()"        [p-disabled]="currentPage === 1"      ></po-button>      <po-button        p-label="Anterior"        (p-click)="previousPage()"        [p-disabled]="currentPage === 1"      ></po-button>      <span>Página {{ currentPage }} de {{ getTotalPages() }}</span>      <po-button        p-label="Próxima"        (p-click)="nextPage()"        [p-disabled]="currentPage === getTotalPages()"      ></po-button>      <po-button        p-label="Última"        (p-click)="lastPage()"        [p-disabled]="currentPage === getTotalPages()"      ></po-button>      <po-select        class="select-qtde"        [p-options]="itemsPerPageOptions"        (p-change)="onItemsPerPageChange($event)"      ></po-select>    </div>    <!-- Pagination com event output -->    <div class="pagination-controls" *ngIf="paginationType === \'pagination\' && isPaginationByInput">      <po-button        p-label="Primeira"        (p-click)="firstPageEvent()"        [p-disabled]="currentPage === 1"      ></po-button>      <po-button        p-label="Anterior"        (p-click)="previousPageEvent()"        [p-disabled]="currentPage === 1"      ></po-button>      <span>Página {{ currentPage }} de {{ totalPages }}</span>      <po-button        p-label="Próxima"        (p-click)="nextPageEvent()"        [p-disabled]="currentPage === totalPages"      ></po-button>      <po-button        p-label="Última"        (p-click)="lastPageEvent()"        [p-disabled]="currentPage === totalPages"      ></po-button>      <po-select class="select-qtde"        [p-options]="itemsPerPageOptions"        (p-change)="changeQuantityPerPageEvent($event)"      ></po-select>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'ChartsComponent', 'selector': 'bo-charts'},{'name': 'ChatComponent', 'selector': 'bo-chat'},{'name': 'DrilldownComponent', 'selector': 'bo-drilldown'},{'name': 'ExportButtonComponent', 'selector': 'bo-export-button'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DrilldownComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> resultados correspondentes "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DrilldownComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

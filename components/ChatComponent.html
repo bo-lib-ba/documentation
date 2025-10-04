@@ -1,0 +1,2073 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Backoffice Lib Docs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Backoffice Lib Docs</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Componentes</li>
+  <li class="breadcrumb-item"
+  >
+  ChatComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Arquivo</h3>
+</p>
+<p class="comment">
+    <code>projects/bo-lib/src/lib/components/chat/chat.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Descrição</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de Chat flutuante com suporte a:</p>
+<ul>
+<li>Minimizar e maximizar</li>
+<li>Perguntas rápidas</li>
+<li>Envio automático de resposta</li>
+<li>Drag &amp; drop limitado à viewport</li>
+</ul>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>bo-chat</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgClass</code>
+                            <code>NgFor</code>
+                            <code>FormsModule</code>
+                            <code>DragDropModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./chat.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./chat.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#cdkDrag" >cdkDrag</a>
+                            </li>
+                            <li>
+                                <a href="#chatVisible" >chatVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#chatWrapper" >chatWrapper</a>
+                            </li>
+                            <li>
+                                <a href="#inputMessage" >inputMessage</a>
+                            </li>
+                            <li>
+                                <a href="#isMaximized" >isMaximized</a>
+                            </li>
+                            <li>
+                                <a href="#isOpen" >isOpen</a>
+                            </li>
+                            <li>
+                                <a href="#lastLinks" >lastLinks</a>
+                            </li>
+                            <li>
+                                <a href="#messages" >messages</a>
+                            </li>
+                            <li>
+                                <a href="#notificationAudio" >notificationAudio</a>
+                            </li>
+                            <li>
+                                <a href="#quickRepliesOptions" >quickRepliesOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#scrollContainer" >scrollContainer</a>
+                            </li>
+                            <li>
+                                <a href="#showGif" >showGif</a>
+                            </li>
+                            <li>
+                                <a href="#thinking" >thinking</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkQuickReplies" >checkQuickReplies</a>
+                            </li>
+                            <li>
+                                <a href="#checkUpdatesMessages" >checkUpdatesMessages</a>
+                            </li>
+                            <li>
+                                <a href="#closeChat" >closeChat</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#openChat" >openChat</a>
+                            </li>
+                            <li>
+                                <a href="#openLinkExternal" >openLinkExternal</a>
+                            </li>
+                            <li>
+                                <a href="#playNotificationSound" >playNotificationSound</a>
+                            </li>
+                            <li>
+                                <a href="#scrollToBottom" >scrollToBottom</a>
+                            </li>
+                            <li>
+                                <a href="#sendMessage" >sendMessage</a>
+                            </li>
+                            <li>
+                                <a href="#sendQuickMessage" >sendQuickMessage</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMaximize" >toggleMaximize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#darkMode" >darkMode</a>
+                            </li>
+                            <li>
+                                <a href="#idRequest" >idRequest</a>
+                            </li>
+                            <li>
+                                <a href="#incomingMessage" >incomingMessage</a>
+                            </li>
+                            <li>
+                                <a href="#linksToOpen" >linksToOpen</a>
+                            </li>
+                            <li>
+                                <a href="#quickReplies" >quickReplies</a>
+                            </li>
+                            <li>
+                                <a href="#sunsetMode" >sunsetMode</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#openLink" >openLink</a>
+                            </li>
+                            <li>
+                                <a href="#userMessage" >userMessage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="darkMode"></a>
+                        <b>darkMode</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>boolean | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="118" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:118</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="idRequest"></a>
+                        <b>idRequest</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="120" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:120</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="incomingMessage"></a>
+                        <b>incomingMessage</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="117" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:117</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="linksToOpen"></a>
+                        <b>linksToOpen</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>string[] | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="122" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:122</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="quickReplies"></a>
+                        <b>quickReplies</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>string[] | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="121" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:121</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sunsetMode"></a>
+                        <b>sunsetMode</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>boolean | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="119" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:119</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openLink"></a>
+                        <b>openLink</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="125" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:125</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userMessage"></a>
+                        <b>userMessage</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="124" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:124</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkQuickReplies"></a>
+                    <span class="name">
+                        <span ><b>checkQuickReplies</b></span>
+                        <a href="#checkQuickReplies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkQuickReplies(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="169"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkUpdatesMessages"></a>
+                    <span class="name">
+                        <span ><b>checkUpdatesMessages</b></span>
+                        <a href="#checkUpdatesMessages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkUpdatesMessages(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="165"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeChat"></a>
+                    <span class="name">
+                        <span ><b>closeChat</b></span>
+                        <a href="#closeChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeChat()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="196"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="148"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openChat"></a>
+                    <span class="name">
+                        <span ><b>openChat</b></span>
+                        <a href="#openChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openChat()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="191"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openLinkExternal"></a>
+                    <span class="name">
+                        <span ><b>openLinkExternal</b></span>
+                        <a href="#openLinkExternal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openLinkExternal(link: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="215"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>link</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="playNotificationSound"></a>
+                    <span class="name">
+                        <span ><b>playNotificationSound</b></span>
+                        <a href="#playNotificationSound"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>playNotificationSound()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="174"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToBottom"></a>
+                    <span class="name">
+                        <span ><b>scrollToBottom</b></span>
+                        <a href="#scrollToBottom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scrollToBottom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="238"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Rola a área de mensagens para o final (última mensagem)</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendMessage"></a>
+                    <span class="name">
+                        <span ><b>sendMessage</b></span>
+                        <a href="#sendMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendMessage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="204"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Envia a mensagem digitada pelo usuário e simula uma resposta do bot</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendQuickMessage"></a>
+                    <span class="name">
+                        <span ><b>sendQuickMessage</b></span>
+                        <a href="#sendQuickMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendQuickMessage(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="185"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Envia uma pergunta rápida como se fosse uma mensagem digitada pelo usuário</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descrição</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>text</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Texto da pergunta sugerida</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleMaximize"></a>
+                    <span class="name">
+                        <span ><b>toggleMaximize</b></span>
+                        <a href="#toggleMaximize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleMaximize()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="223"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:223</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Alterna entre janela normal e maximizada
+Remove transformações de drag antes de maximizar</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cdkDrag"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>cdkDrag</b></span>
+                        <a href="#cdkDrag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>CdkDrag</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decoradores : </b>
+                        <br />
+                        <code>
+                            @ViewChild(CdkDrag)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="115" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chatVisible"></a>
+                    <span class="name">
+                        <span ><b>chatVisible</b></span>
+                        <a href="#chatVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="131" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chatWrapper"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>chatWrapper</b></span>
+                        <a href="#chatWrapper"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>ElementRef&lt;HTMLDivElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decoradores : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;chatWrapper&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="114" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:114</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Elemento raiz da janela do chat, usado para resetar transformações</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputMessage"></a>
+                    <span class="name">
+                        <span ><b>inputMessage</b></span>
+                        <a href="#inputMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="137" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:137</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Texto digitado ou preenchido automaticamente pelo usuário</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMaximized"></a>
+                    <span class="name">
+                        <span ><b>isMaximized</b></span>
+                        <a href="#isMaximized"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="134" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Define se o chat está em modo tela cheia (maximizado)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOpen"></a>
+                    <span class="name">
+                        <span ><b>isOpen</b></span>
+                        <a href="#isOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="130" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Define se o chat está visível (true) ou minimizado (false)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastLinks"></a>
+                    <span class="name">
+                        <span ><b>lastLinks</b></span>
+                        <a href="#lastLinks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="142" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messages"></a>
+                    <span class="name">
+                        <span ><b>messages</b></span>
+                        <a href="#messages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="140" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:140</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de mensagens trocadas entre usuário e bot</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notificationAudio"></a>
+                    <span class="name">
+                        <span ><b>notificationAudio</b></span>
+                        <a href="#notificationAudio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>new Audio(&#x27;assets/notification.mp3&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="147" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quickRepliesOptions"></a>
+                    <span class="name">
+                        <span ><b>quickRepliesOptions</b></span>
+                        <a href="#quickRepliesOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="145" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:145</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista de perguntas rápidas sugeridas pelo bot</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollContainer"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>scrollContainer</b></span>
+                        <a href="#scrollContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decoradores : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;scrollContainer&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="111" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:111</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Elemento de scroll da área de mensagens</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showGif"></a>
+                    <span class="name">
+                        <span ><b>showGif</b></span>
+                        <a href="#showGif"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="127" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="thinking"></a>
+                    <span class="name">
+                        <span ><b>thinking</b></span>
+                        <a href="#thinking"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="132" class="link-to-prism">projects/bo-lib/src/lib/components/chat/chat.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, ViewChild } from &#x27;@angular/core&#x27;;
+import { NgIf, NgClass, NgFor } from &#x27;@angular/common&#x27;;
+import { CdkDrag } from &#x27;@angular/cdk/drag-drop&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { DragDropModule } from &#x27;@angular/cdk/drag-drop&#x27;;
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  state,
+  group,
+} from &#x27;@angular/animations&#x27;;
+
+import { Input, Output, EventEmitter, OnChanges, SimpleChanges } from &#x27;@angular/core&#x27;;
+
+
+/**
+ * Componente de Chat flutuante com suporte a:
+ * - Minimizar e maximizar
+ * - Perguntas rápidas
+ * - Envio automático de resposta
+ * - Drag &amp; drop limitado à viewport
+ */
+@Component({
+  selector: &#x27;bo-chat&#x27;,
+  standalone: true,
+  imports: [NgIf, NgClass, NgFor, FormsModule, DragDropModule],
+  templateUrl: &#x27;./chat.component.html&#x27;,
+  styleUrl: &#x27;./chat.component.css&#x27;,
+  animations: [
+    // nova animação para o conteúdo interno
+  trigger(&#x27;fadeIn&#x27;, [
+    transition(&#x27;:enter&#x27;, [
+      style({ opacity: 0 }),
+      animate(&#x27;300ms ease-out&#x27;, style({ opacity: 1 }))
+    ]),
+    transition(&#x27;:leave&#x27;, [
+      animate(&#x27;150ms ease-in&#x27;, style({ opacity: 0 }))
+    ])
+  ]),
+  trigger(&#x27;shapeshift&#x27;, [
+    // Estado fechado
+    state(&#x27;closed&#x27;, style({
+      width: &#x27;3.4rem&#x27;,
+      height: &#x27;3.4rem&#x27;,
+      borderRadius: &#x27;50%&#x27;,
+      background: &#x27;none&#x27;,
+      boxShadow: &#x27;none&#x27;,
+      bottom: &#x27;1.25rem&#x27;,
+      right: &#x27;1.25rem&#x27;,
+      opacity: 1,
+    })),
+
+    // Estado aberto
+    state(&#x27;open&#x27;, style({
+      width: &#x27;31.25rem&#x27;,
+      height: &#x27;26.25rem&#x27;,
+      borderRadius: &#x27;0.5rem&#x27;,
+      background: &#x27;linear-gradient(90deg, #7a00ff, #00c4ff, #00ffee)&#x27;,
+      boxShadow: &#x27;0 0.25rem 0.75rem rgba(0, 0, 0, 0.3)&#x27;,
+      bottom: &#x27;1.25rem&#x27;,
+      right: &#x27;1.25rem&#x27;,
+      opacity: 1,
+    })),
+
+    // Ao abrir (com azul durante a animação)
+    transition(&#x27;closed &#x3D;&gt; open&#x27;, [
+      group([
+        animate(
+          &#x27;400ms ease-in-out&#x27;,
+          style({
+            width: &#x27;31.25rem&#x27;,
+            height: &#x27;26.25rem&#x27;,
+            borderRadius: &#x27;0.5rem&#x27;,
+            background: &#x27;linear-gradient(90deg, #7a00ff, #00c4ff, #00ffee)&#x27;, // AZUL durante
+            bottom: &#x27;1.25rem&#x27;,
+            right: &#x27;1.25rem&#x27;,
+            opacity: 1,
+          })
+        ),
+        animate(
+          &#x27;360ms 40ms ease-in&#x27;,
+          style({
+            boxShadow: &#x27;0 0.25rem 0.75rem rgba(0, 0, 0, 0.3)&#x27;,
+          })
+        ),
+      ])
+    ]),
+
+    // Ao fechar (também azul)
+    transition(&#x27;open &#x3D;&gt; closed&#x27;, [
+      animate(
+        &#x27;200ms ease-in&#x27;,
+        style({
+          width: &#x27;3.4rem&#x27;,
+          height: &#x27;3.4rem&#x27;,
+          borderRadius: &#x27;50%&#x27;,
+          background: &#x27;linear-gradient(90deg, #7a00ff, #00c4ff, #00ffee)&#x27;, // AZUL durante
+          boxShadow: &#x27;none&#x27;,
+          opacity: 1,
+        })
+      ),
+    ]),
+  ])
+]
+
+})
+export class ChatComponent {
+  /** Elemento de scroll da área de mensagens */
+  @ViewChild(&#x27;scrollContainer&#x27;) scrollContainer!: ElementRef;
+
+  /** Elemento raiz da janela do chat, usado para resetar transformações */
+  @ViewChild(&#x27;chatWrapper&#x27;) chatWrapper!: ElementRef&lt;HTMLDivElement&gt;;
+    @ViewChild(CdkDrag) cdkDrag!: CdkDrag;
+
+@Input() incomingMessage: string | null &#x3D; null;
+@Input() darkMode?: boolean | null &#x3D; false;
+@Input() sunsetMode?: boolean | null &#x3D; false;
+@Input() idRequest: string | null &#x3D; null;
+@Input() quickReplies: string[] | null &#x3D; null;
+@Input() linksToOpen: string[] | null &#x3D; null;
+
+@Output() userMessage &#x3D; new EventEmitter&lt;string&gt;();
+@Output() openLink &#x3D; new EventEmitter&lt;string&gt;();
+
+  showGif &#x3D; true;
+
+  /** Define se o chat está visível (true) ou minimizado (false) */
+  isOpen &#x3D; false; // controla o estado animado (aberto ou fechado)
+  chatVisible &#x3D; false; // controla se o conteúdo interno está visível
+  thinking: boolean &#x3D; false; // controla o estado de &quot;pensando&quot; do bot
+  /** Define se o chat está em modo tela cheia (maximizado) */
+  isMaximized &#x3D; false;
+
+  /** Texto digitado ou preenchido automaticamente pelo usuário */
+  inputMessage &#x3D; &#x27;&#x27;;
+
+  /** Lista de mensagens trocadas entre usuário e bot */
+  messages: { from: &#x27;user&#x27; | &#x27;bot&#x27;; text: string }[] &#x3D; [];
+
+  lastLinks: string[] &#x3D; [];
+
+  /** Lista de perguntas rápidas sugeridas pelo bot */
+  quickRepliesOptions: string[] &#x3D; [];
+
+notificationAudio &#x3D; new Audio(&#x27;assets/notification.mp3&#x27;); // ajuste o caminho conforme necessário
+    ngOnChanges(changes: SimpleChanges): void {
+    if (this.checkUpdatesMessages(changes)) {
+      const message &#x3D; changes[&#x27;incomingMessage&#x27;].currentValue as string;
+      this.messages.push({ from: &#x27;bot&#x27;, text: message });
+         this.playNotificationSound(); // &lt;-- toca o som aqui
+      this.scrollToBottom();
+      this.thinking &#x3D; false;
+      this.lastLinks &#x3D; this.linksToOpen ?? [];
+    }
+    if(this.checkQuickReplies(changes)) {
+      this.quickRepliesOptions &#x3D; changes[&#x27;quickReplies&#x27;].currentValue as string[];
+      console.log(this.quickRepliesOptions);
+      this.scrollToBottom();
+      this.thinking &#x3D; false;
+    }
+  }
+
+  checkUpdatesMessages(changes: SimpleChanges): boolean {
+    return (changes[&#x27;incomingMessage&#x27;] &amp;&amp; changes[&#x27;incomingMessage&#x27;].currentValue) || (changes[&#x27;idRequest&#x27;] &amp;&amp; changes[&#x27;idRequest&#x27;].currentValue);
+  }
+
+  checkQuickReplies(changes: SimpleChanges): boolean {
+    return (changes[&#x27;quickReplies&#x27;] &amp;&amp; changes[&#x27;quickReplies&#x27;].currentValue) || (changes[&#x27;idRequest&#x27;] &amp;&amp; changes[&#x27;idRequest&#x27;].currentValue);
+  }
+
+// Método para tocar o som
+playNotificationSound(): void {
+  if (document.hidden) { // Só toca se a aba NÃO estiver em foco
+    this.notificationAudio.currentTime &#x3D; 0;
+    this.notificationAudio.play().catch(() &#x3D;&gt; {});
+  }
+}
+
+  /**
+   * Envia uma pergunta rápida como se fosse uma mensagem digitada pelo usuário
+   * @param text Texto da pergunta sugerida
+   */
+  sendQuickMessage(text: string): void {
+    this.inputMessage &#x3D; text;
+    this.sendMessage();
+    this.quickRepliesOptions &#x3D; []; // Limpa as opções de perguntas rápidas
+  }
+
+  openChat() {
+    this.isOpen &#x3D; true;
+    setTimeout(() &#x3D;&gt; (this.chatVisible &#x3D; true), 400); // espera animação terminar
+  }
+
+  closeChat() {
+    this.chatVisible &#x3D; false;
+    setTimeout(() &#x3D;&gt; (this.isOpen &#x3D; false), 250); // espera animação reversa
+  }
+
+  /**
+   * Envia a mensagem digitada pelo usuário e simula uma resposta do bot
+   */
+sendMessage(): void {
+  this.thinking &#x3D; true;
+  const trimmed &#x3D; this.inputMessage.trim();
+  if (!trimmed) return;
+
+  this.messages.push({ from: &#x27;user&#x27;, text: trimmed });
+  this.userMessage.emit(trimmed); // &lt;-- avisa o pai
+  this.inputMessage &#x3D; &#x27;&#x27;;
+  this.scrollToBottom();
+}
+
+openLinkExternal(link: string): void {
+  this.openLink.emit(link); // &lt;-- avisa o pai para abrir o link
+}
+
+  /**
+   * Alterna entre janela normal e maximizada
+   * Remove transformações de drag antes de maximizar
+   */
+  toggleMaximize(): void {
+    if (!this.isMaximized &amp;&amp; this.chatWrapper) {
+      // Remove transform inline
+      this.chatWrapper.nativeElement.style.transform &#x3D; &#x27;none&#x27;;
+      // Reseta a posição do drag
+      if (this.cdkDrag) {
+        this.cdkDrag.reset();
+      }
+    }
+    this.isMaximized &#x3D; !this.isMaximized;
+  }
+
+  /**
+   * Rola a área de mensagens para o final (última mensagem)
+   */
+  scrollToBottom(): void {
+    setTimeout(() &#x3D;&gt; {
+      if(this.scrollContainer){
+        const el &#x3D; this.scrollContainer.nativeElement;
+        el.scrollTop &#x3D; el.scrollHeight;
+      }
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Contêiner animado --&gt;
+&lt;div
+  class&#x3D;&quot;chat-transition-wrapper&quot;
+  [ngClass]&#x3D;&quot;{ &#x27;dark-mode&#x27;: darkMode, &#x27;sunset-mode&#x27;: sunsetMode }&quot;
+  [@shapeshift]&#x3D;&quot;isOpen ? &#x27;open&#x27; : &#x27;closed&#x27;&quot;
+  [class.floating]&#x3D;&quot;!isOpen&quot;
+  [class.opened]&#x3D;&quot;isOpen&quot;
+  (click)&#x3D;&quot;!isOpen &amp;&amp; openChat()&quot;
+&gt;
+  &lt;!-- Conteúdo só aparece se isOpen --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;chatVisible&quot;&gt;
+    &lt;div
+      #chatWrapper
+      class&#x3D;&quot;chat-wrapper&quot;
+      cdkDrag
+      [cdkDragDisabled]&#x3D;&quot;isMaximized&quot;
+      cdkDragBoundary&#x3D;&quot;body&quot;
+      cdkDragRootElement&#x3D;&quot;.chat-transition-wrapper&quot;
+      @fadeIn
+      [ngClass]&#x3D;&quot;{ maximized: isMaximized }&quot;
+    &gt;
+      &lt;!-- Cabeçalho, corpo, etc. (igual ao seu código atual) --&gt;
+      &lt;div class&#x3D;&quot;chat-header&quot;&gt;
+        &lt;div class&#x3D;&quot;title&quot;&gt;
+          &lt;span class&#x3D;&quot;icon&quot;&gt;
+            &lt;img width&#x3D;&quot;20&quot; *ngIf&#x3D;&quot;!sunsetMode&quot; src&#x3D;&quot;assets/chat.png&quot; alt&#x3D;&quot;TOTVS&quot; /&gt;
+            &lt;img width&#x3D;&quot;20&quot; *ngIf&#x3D;&quot;sunsetMode&quot; src&#x3D;&quot;assets/chat-sunset.png&quot; alt&#x3D;&quot;TOTVS&quot; /&gt;
+          &lt;/span&gt;
+          &lt;span&gt;Supervisor&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;header-buttons&quot;&gt;
+          &lt;button class&#x3D;&quot;maximize-btn&quot; (click)&#x3D;&quot;toggleMaximize()&quot;&gt;
+            {{ isMaximized ? &#x27;🗕&#x27; : &#x27;🗖&#x27; }}
+          &lt;/button&gt;
+          &lt;button class&#x3D;&quot;close-btn&quot; (click)&#x3D;&quot;closeChat()&quot;&gt;
+            &lt;img width&#x3D;&quot;25&quot; *ngIf&#x3D;&quot;!sunsetMode&quot; src&#x3D;&quot;assets/clear-content.png&quot; alt&#x3D;&quot;Fechar&quot; /&gt;
+            &lt;img width&#x3D;&quot;25&quot; *ngIf&#x3D;&quot;sunsetMode&quot; src&#x3D;&quot;assets/clear-content-sunset.png&quot; alt&#x3D;&quot;Fechar&quot; /&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Corpo do chat (área de mensagens) --&gt;
+      &lt;div class&#x3D;&quot;chat-body&quot; #scrollContainer&gt;
+        &lt;!-- Mensagem de boas-vindas do bot --&gt;
+        &lt;div class&#x3D;&quot;bot-message&quot;&gt;
+          &lt;img class&#x3D;&quot;bot-icon&quot; src&#x3D;&quot;assets/logo-estatica.png&quot; alt&#x3D;&quot;TOTVS&quot; /&gt;
+          &lt;div class&#x3D;&quot;message-box&quot;&gt;
+            &lt;!-- &lt;strong&gt;TOTVS&lt;/strong&gt; --&gt;
+            &lt;div class&#x3D;&quot;bubble&quot;&gt;Olá! Como posso ajudar você hoje?&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Lista de mensagens trocadas --&gt;
+        &lt;ng-container *ngFor&#x3D;&quot;let msg of messages&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;msg.from &#x3D;&#x3D;&#x3D; &#x27;bot&#x27;&quot; class&#x3D;&quot;bot-message fade-in-left&quot;&gt;
+            &lt;img class&#x3D;&quot;bot-icon&quot; src&#x3D;&quot;assets/logo-estatica.png&quot; alt&#x3D;&quot;TOTVS&quot; /&gt;
+            &lt;div class&#x3D;&quot;message-box&quot;&gt;
+              &lt;!-- &lt;strong&gt;TOTVS&lt;/strong&gt; --&gt;
+              &lt;div class&#x3D;&quot;bubble&quot; [innerHTML]&#x3D;&quot;msg.text&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;msg.from &#x3D;&#x3D;&#x3D; &#x27;bot&#x27; &amp;&amp; lastLinks.length &gt; 0&quot;&gt;
+            &lt;div class&#x3D;&quot;links-to-open&quot; style&#x3D;&quot;padding-left: 2.4rem;&quot;&gt;
+              &lt;button (click)&#x3D;&quot;openLinkExternal(link)&quot; *ngFor&#x3D;&quot;let link of lastLinks&quot; class&#x3D;&quot;quick-button&quot; &gt;
+                Acessar {{ link }}
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+
+          &lt;!-- Mensagem do usuário --&gt;
+          &lt;div *ngIf&#x3D;&quot;msg.from &#x3D;&#x3D;&#x3D; &#x27;user&#x27;&quot; class&#x3D;&quot;user-message fade-in-right&quot;&gt;
+            &lt;div class&#x3D;&quot;bubble user&quot;&gt;{{ msg.text }}&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/ng-container&gt;
+        &lt;!-- Mensagem do bot --&gt;
+        &lt;div class&#x3D;&quot;bot-message&quot; *ngIf&#x3D;&quot;thinking&quot;&gt;
+          &lt;img class&#x3D;&quot;bot-icon&quot; src&#x3D;&quot;assets/logo-estatica.png&quot; alt&#x3D;&quot;TOTVS&quot; /&gt;
+          &lt;div class&#x3D;&quot;message-box&quot;&gt;
+            &lt;!-- &lt;strong&gt;TOTVS&lt;/strong&gt; --&gt;
+            &lt;div&gt;&lt;img style&#x3D;&quot;width: 3rem&quot; src&#x3D;&quot;assets/images/typing.gif&quot; /&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Perguntas rápidas sugeridas pelo bot --&gt;
+      &lt;div class&#x3D;&quot;quick-replies&quot; *ngIf&#x3D;&quot;quickRepliesOptions.length &gt; 0&quot;&gt;
+        &lt;div class&#x3D;&quot;quick-replies-scroll&quot;&gt;
+          &lt;button class&#x3D;&quot;quick-button&quot; *ngFor&#x3D;&quot;let reply of quickRepliesOptions&quot; (click)&#x3D;&quot;sendQuickMessage(reply)&quot;&gt;
+            {{ reply }}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Rodapé com campo de entrada e botão --&gt;
+      &lt;div class&#x3D;&quot;chat-footer&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          [(ngModel)]&#x3D;&quot;inputMessage&quot;
+          (keydown.enter)&#x3D;&quot;sendMessage()&quot;
+          placeholder&#x3D;&quot;Digite aqui...&quot;
+          aria-label&#x3D;&quot;Digite sua mensagem&quot;
+        /&gt;
+        &lt;button (click)&#x3D;&quot;sendMessage()&quot; class&#x3D;&quot;attachment-btn&quot; aria-label&#x3D;&quot;Enviar toque&quot;&gt;
+          &lt;img width&#x3D;&quot;25&quot; *ngIf&#x3D;&quot;!sunsetMode&quot; src&#x3D;&quot;assets/touch.png&quot; alt&#x3D;&quot;Toque&quot; /&gt;
+          &lt;img width&#x3D;&quot;25&quot; *ngIf&#x3D;&quot;sunsetMode&quot; src&#x3D;&quot;assets/touch-sunset.png&quot; alt&#x3D;&quot;Toque&quot; /&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Botão flutuante só visível quando fechado --&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;!isOpen&quot;&gt;
+    &lt;div class&#x3D;&quot;chat-float-btn&quot;&gt;
+      &lt;img width&#x3D;&quot;55&quot; src&#x3D;&quot;assets/ia.gif&quot; alt&#x3D;&quot;Abrir chat&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/ng-container&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento HTML</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento HTML com diretiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Contêiner animado --><div  class="chat-transition-wrapper"  [ngClass]="{ \'dark-mode\': darkMode, \'sunset-mode\': sunsetMode }"  [@shapeshift]="isOpen ? \'open\' : \'closed\'"  [class.floating]="!isOpen"  [class.opened]="isOpen"  (click)="!isOpen && openChat()">  <!-- Conteúdo só aparece se isOpen -->  <ng-container *ngIf="chatVisible">    <div      #chatWrapper      class="chat-wrapper"      cdkDrag      [cdkDragDisabled]="isMaximized"      cdkDragBoundary="body"      cdkDragRootElement=".chat-transition-wrapper"      @fadeIn      [ngClass]="{ maximized: isMaximized }"    >      <!-- Cabeçalho, corpo, etc. (igual ao seu código atual) -->      <div class="chat-header">        <div class="title">          <span class="icon">            <img width="20" *ngIf="!sunsetMode" src="assets/chat.png" alt="TOTVS" />            <img width="20" *ngIf="sunsetMode" src="assets/chat-sunset.png" alt="TOTVS" />          </span>          <span>Supervisor</span>        </div>        <div class="header-buttons">          <button class="maximize-btn" (click)="toggleMaximize()">            {{ isMaximized ? \'🗕\' : \'🗖\' }}          </button>          <button class="close-btn" (click)="closeChat()">            <img width="25" *ngIf="!sunsetMode" src="assets/clear-content.png" alt="Fechar" />            <img width="25" *ngIf="sunsetMode" src="assets/clear-content-sunset.png" alt="Fechar" />          </button>        </div>      </div>      <!-- Corpo do chat (área de mensagens) -->      <div class="chat-body" #scrollContainer>        <!-- Mensagem de boas-vindas do bot -->        <div class="bot-message">          <img class="bot-icon" src="assets/logo-estatica.png" alt="TOTVS" />          <div class="message-box">            <!-- <strong>TOTVS</strong> -->            <div class="bubble">Olá! Como posso ajudar você hoje?</div>          </div>        </div>        <!-- Lista de mensagens trocadas -->        <ng-container *ngFor="let msg of messages">          <div *ngIf="msg.from === \'bot\'" class="bot-message fade-in-left">            <img class="bot-icon" src="assets/logo-estatica.png" alt="TOTVS" />            <div class="message-box">              <!-- <strong>TOTVS</strong> -->              <div class="bubble" [innerHTML]="msg.text"></div>            </div>          </div>          <div *ngIf="msg.from === \'bot\' && lastLinks.length > 0">            <div class="links-to-open" style="padding-left: 2.4rem;">              <button (click)="openLinkExternal(link)" *ngFor="let link of lastLinks" class="quick-button" >                Acessar {{ link }}              </button>            </div>          </div>          <!-- Mensagem do usuário -->          <div *ngIf="msg.from === \'user\'" class="user-message fade-in-right">            <div class="bubble user">{{ msg.text }}</div>          </div>        </ng-container>        <!-- Mensagem do bot -->        <div class="bot-message" *ngIf="thinking">          <img class="bot-icon" src="assets/logo-estatica.png" alt="TOTVS" />          <div class="message-box">            <!-- <strong>TOTVS</strong> -->            <div><img style="width: 3rem" src="assets/images/typing.gif" /></div>          </div>        </div>      </div>      <!-- Perguntas rápidas sugeridas pelo bot -->      <div class="quick-replies" *ngIf="quickRepliesOptions.length > 0">        <div class="quick-replies-scroll">          <button class="quick-button" *ngFor="let reply of quickRepliesOptions" (click)="sendQuickMessage(reply)">            {{ reply }}          </button>        </div>      </div>      <!-- Rodapé com campo de entrada e botão -->      <div class="chat-footer">        <input          type="text"          [(ngModel)]="inputMessage"          (keydown.enter)="sendMessage()"          placeholder="Digite aqui..."          aria-label="Digite sua mensagem"        />        <button (click)="sendMessage()" class="attachment-btn" aria-label="Enviar toque">          <img width="25" *ngIf="!sunsetMode" src="assets/touch.png" alt="Toque" />          <img width="25" *ngIf="sunsetMode" src="assets/touch-sunset.png" alt="Toque" />        </button>      </div>    </div>  </ng-container>  <!-- Botão flutuante só visível quando fechado -->  <ng-container *ngIf="!isOpen">    <div class="chat-float-btn">      <img width="55" src="assets/ia.gif" alt="Abrir chat" />    </div>  </ng-container></div></div>'
+    var COMPONENTS = [{'name': 'ChartsComponent', 'selector': 'bo-charts'},{'name': 'ChatComponent', 'selector': 'bo-chat'},{'name': 'DrilldownComponent', 'selector': 'bo-drilldown'},{'name': 'ExportButtonComponent', 'selector': 'bo-export-button'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ChatComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> resultados correspondentes "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ChatComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
