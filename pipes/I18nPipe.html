@@ -79,7 +79,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content pipe">
                    <div class="content-data">
 
 
@@ -92,13 +92,9 @@
 
 
 
-
-
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Interfaces</li>
-  <li class="breadcrumb-item"
-  >
-  DrillDownData</li>
+  <li class="breadcrumb-item">Pipes</li>
+  <li class="breadcrumb-item" >I18nPipe</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -118,189 +114,132 @@
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="info">
+
         <p class="comment">
             <h3>Arquivo</h3>
         </p>
         <p class="comment">
-            <code>projects/bo-lib/src/models/chat-message.model.ts</code>
+            <code>projects/bo-lib/src/lib/components/shared/pipes/i18n.pipe.ts</code>
         </p>
 
 
 
 
-        <section data-compodoc="block-index">
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
+        <section data-compodoc="block-metadata">
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover metadata">
                 <tbody>
                     <tr>
-                        <td class="col-md-4">
-                            <h6><b>Propriedades</b></h6>
-                        </td>
+                        <td class="col-md-3">Nome</td>
+                        <td class="col-md-9">i18n</td>
                     </tr>
                     <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                        <a href="#hasNext" 
->
-                                            hasNext
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#header" 
->
-                                            header
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#items" 
->
-                                            items
-                                        </a>
-                                </li>
-                            </ul>
-                        </td>
+                        <td class="col-md-3">Standalone</td>
+                        <td class="col-md-9"><code>true</code></td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transform"></a>
+                    <span class="name">
+                        <span ><b>transform</b></span>
+                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transform(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
 
 
-            <section data-compodoc="block-properties">
-                <h3 id="inputs">Propriedades</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="hasNext"></a>
-                                        <span class="name "><b>hasNext</b>
-                                            <a href="#hasNext">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>hasNext:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
-                                    </td>
-                                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="12"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/shared/pipes/i18n.pipe.ts:12</a></div>
+                        </td>
+                    </tr>
 
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            <tr>
+                <td class="col-md-4">
 
-                                        </td>
-                                    </tr>
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="header"></a>
-                                        <span class="name "><b>header</b>
-                                            <a href="#header">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>header:         <code><a href="../interfaces/DrillDownHeader.html" target="_self" >DrillDownHeader[]</a></code>
-</code>
-                                    </td>
-                                </tr>
+                                            <td>
+                                                    Não
+                                            </td>
 
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="../interfaces/DrillDownHeader.html" target="_self" >DrillDownHeader[]</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                                        </td>
-                                    </tr>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="items"></a>
-                                        <span class="name "><b>items</b>
-                                            <a href="#items">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>items:     <code>any[]</code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Tipo : </i>    <code>any[]</code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PoChartType } from &#x27;@po-ui/ng-components&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
+import { I18nService } from &#x27;../services/i18n.service&#x27;;
 
-export interface DrillDownHeader {
-  property: string;
-  label: string;
-  visible: boolean;
-  showFilter?: boolean;
-}
+@Pipe({
+  name: &#x27;i18n&#x27;,
+  standalone: true
+})
+export class I18nPipe implements PipeTransform {
+  
+  constructor(private i18nService: I18nService) {}
 
-export interface DrillDownData {
-  header: DrillDownHeader[];
-  items: any[];
-  hasNext: boolean;
-}
-
-export interface ChatMessage {
-  from: &#x27;user&#x27; | &#x27;bot&#x27;;
-  text?: string;
-  type?: &#x27;text&#x27; | &#x27;table&#x27; | &#x27;bo-drilldown&#x27; | &#x27;chart&#x27;;
-  tableColumns?: any[];
-  tableData?: any[];
-  drillDownData?: DrillDownData;
-  chartType?: PoChartType;
-  chartData?: { label: string; data: number }[];
+  transform(key: string): string {
+    return this.i18nService.t(key);
+  }
 }
 </code></pre>
     </div>
+
 </div>
+
+
 
 
 
@@ -334,8 +273,8 @@ export interface ChatMessage {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'DrillDownData.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'pipe';
+            var COMPODOC_CURRENT_PAGE_URL = 'I18nPipe.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

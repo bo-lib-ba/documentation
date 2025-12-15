@@ -1,0 +1,674 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Backoffice Lib Docs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Backoffice Lib Docs</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >ChartOptionsBuilder</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Arquivo</h3>
+        </p>
+        <p class="comment">
+            <code>projects/bo-lib/src/lib/components/forecast-modal/util/chart-options.builder.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#scaleMap" >scaleMap</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#build" >build</a>
+                            </li>
+                            <li>
+                                <a href="#formatMoney" >formatMoney</a>
+                            </li>
+                            <li>
+                                <a href="#transformInWords" >transformInWords</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Construtor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(i18nService: <a href="../injectables/I18nService.html" target="_self">I18nService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="5" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/util/chart-options.builder.ts:5</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parâmetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nome</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>i18nService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/I18nService.html" target="_self" >I18nService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scaleMap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>scaleMap</b></span>
+                        <a href="#scaleMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>[
+    { limit: 1_000_000_000_000, divisor: 1_000_000_000_000, singularKey: &#x27;trillion&#x27;, pluralKey: &#x27;trillions&#x27; },
+    { limit: 1_000_000_000, divisor: 1_000_000_000, singularKey: &#x27;billion&#x27;, pluralKey: &#x27;billions&#x27; },
+    { limit: 1_000_000, divisor: 1_000_000, singularKey: &#x27;million&#x27;, pluralKey: &#x27;millions&#x27; },
+    { limit: 1_000, divisor: 1_000, singularKey: &#x27;thousand&#x27;, pluralKey: &#x27;thousand&#x27; }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="59" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/util/chart-options.builder.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="build"></a>
+                    <span class="name">
+                        <span ><b>build</b></span>
+                        <a href="#build"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>build(ctx: <a href="../interfaces/ForecastContext.html" target="_self">ForecastContext</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="11"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/util/chart-options.builder.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ctx</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ForecastContext.html" target="_self" >ForecastContext</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>    <code>ChartOptions&lt;line&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatMoney"></a>
+                    <span class="name">
+                        <span ><b>formatMoney</b></span>
+                        <a href="#formatMoney"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatMoney(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="53"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/util/chart-options.builder.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformInWords"></a>
+                    <span class="name">
+                        <span ><b>transformInWords</b></span>
+                        <a href="#transformInWords"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transformInWords(money: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="66"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/util/chart-options.builder.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>money</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>    <code>literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChartOptions, LegendItem } from &quot;chart.js/auto&quot;;
+import { ForecastContext } from &quot;../interfaces/forecast-interface&quot;;
+import { I18nService } from &quot;../../shared/services/i18n.service&quot;;
+
+export class ChartOptionsBuilder {
+
+  constructor(
+    private i18nService: I18nService
+  ) { }
+
+  build(ctx: ForecastContext): ChartOptions&lt;&#x27;line&#x27;&gt; {
+    return {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: {
+        padding: { left: 5, right: 30, top: 15, bottom: 0 }
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: &#x27;bottom&#x27;,
+          labels: {
+            filter: (item: LegendItem) &#x3D;&gt;
+              item.datasetIndex !&#x3D;&#x3D; undefined &amp;&amp; item.datasetIndex &lt; 4
+          }
+        },
+        tooltip: {
+          enabled: true,
+          mode: &#x27;index&#x27;,
+          callbacks: {
+            label: (ctx) &#x3D;&gt; {
+              const label &#x3D; ctx.dataset.label ? ctx.dataset.label + &#x27;: &#x27; : &#x27;&#x27;;
+              return &#x60;${label} R$ ${(Number(ctx.raw)).toLocaleString(this.i18nService.currentLang)}&#x60;;
+            },
+            title: items &#x3D;&gt; items[0].label
+          }
+        }
+      },
+      hover: { mode: &#x27;nearest&#x27;, intersect: true },
+      scales: {
+        y: {
+          ticks: {
+            callback: (value: string | number) &#x3D;&gt; this.formatMoney(Number(value))
+          },
+          grid: { color: &#x27;#cccccc55&#x27; },
+          border: { color: &#x27;#cccccc55&#x27; }
+        },
+        x: { grid: { display: false } }
+      }
+    };
+  }
+
+  formatMoney(value: number): string {
+    const { valueRound, words } &#x3D; this.transformInWords(value);
+
+    return &#x60;R$ ${valueRound}${words ? &#x27; &#x27; + words : &#x27;&#x27;}&#x60;;
+  }
+
+  private scaleMap &#x3D; [
+    { limit: 1_000_000_000_000, divisor: 1_000_000_000_000, singularKey: &#x27;trillion&#x27;, pluralKey: &#x27;trillions&#x27; },
+    { limit: 1_000_000_000, divisor: 1_000_000_000, singularKey: &#x27;billion&#x27;, pluralKey: &#x27;billions&#x27; },
+    { limit: 1_000_000, divisor: 1_000_000, singularKey: &#x27;million&#x27;, pluralKey: &#x27;millions&#x27; },
+    { limit: 1_000, divisor: 1_000, singularKey: &#x27;thousand&#x27;, pluralKey: &#x27;thousand&#x27; }
+  ];
+
+  transformInWords(money: number): { valueRound: string; words: string } {
+    const absValue &#x3D; Math.abs(money);
+
+    for (const scale of this.scaleMap) {
+      if (absValue &gt;&#x3D; scale.limit) {
+        const scaled &#x3D; absValue / scale.divisor;
+
+        const literalKey &#x3D; scaled &gt; 1 ? scale.pluralKey : scale.singularKey;
+        const words &#x3D; literalKey ? this.i18nService.t(literalKey) : &#x27;&#x27;;
+
+        // Formato con 1 decimal para evaluar si termina en .0
+        const raw &#x3D; scaled.toLocaleString(
+          this.i18nService.currentLang,
+          { minimumFractionDigits: 1, maximumFractionDigits: 1 }
+        );
+
+        // Detectar si el número termina en &quot;,0&quot; o &quot;.0&quot; según locale
+        const sep &#x3D; raw.includes(&#x27;,&#x27;) ? &#x27;,&#x27; : &#x27;.&#x27;;
+        const cleaned &#x3D; raw.endsWith(&#x60;${sep}0&#x60;)
+          ? raw.slice(0, -2)  // remover &quot;,0&quot; o &quot;.0&quot;
+          : raw;
+
+        return {
+          valueRound: &#x60;${money &lt; 0 ? &#x27;-&#x27; : &#x27;&#x27;}${cleaned}&#x60;,
+          words
+        };
+      }
+    }
+
+    // Sin escala (menor a mil)
+    return {
+      valueRound: &#x60;${money &lt; 0 ? &#x27;-&#x27; : &#x27;&#x27;}${absValue.toLocaleString(
+        this.i18nService.currentLang,
+        { minimumFractionDigits: 0, maximumFractionDigits: 0 }
+      )}&#x60;,
+      words: &#x27;&#x27;
+    };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> resultados correspondentes "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ChartOptionsBuilder.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1394 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Backoffice Lib Docs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Backoffice Lib Docs</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Componentes</li>
+  <li class="breadcrumb-item"
+  >
+  ForecastModalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Arquivo</h3>
+</p>
+<p class="comment">
+    <code>projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>bo-forecast-modal</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>PoModule</code>
+                            <code>I18nPipe</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./forecast-modal.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./forecast-modal.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#chart" >chart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#forecastChart" >forecastChart</a>
+                            </li>
+                            <li>
+                                <a href="#forecastContext" >forecastContext</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#forecastModal" >forecastModal</a>
+                            </li>
+                            <li>
+                                <a href="#forecastObject" >forecastObject</a>
+                            </li>
+                            <li>
+                                <a href="#insightDate" >insightDate</a>
+                            </li>
+                            <li>
+                                <a href="#showInterval" >showInterval</a>
+                            </li>
+                            <li>
+                                <a href="#switchIntervalLabelPosition" >switchIntervalLabelPosition</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildChart" >buildChart</a>
+                            </li>
+                            <li>
+                                <a href="#close" >close</a>
+                            </li>
+                            <li>
+                                <a href="#formatAccuracyText" >formatAccuracyText</a>
+                            </li>
+                            <li>
+                                <a href="#open" >open</a>
+                            </li>
+                            <li>
+                                <a href="#toggleInterval" >toggleInterval</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onClose" >onClose</a>
+                            </li>
+                            <li>
+                                <a href="#toggleChange" >toggleChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Construtor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(i18nService: <a href="../injectables/I18nService.html" target="_self">I18nService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="66" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:66</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parâmetros :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nome</td>
+                                                    <td>Tipo</td>
+                                                <td>Opcional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>i18nService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/I18nService.html" target="_self" >I18nService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Não
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onClose"></a>
+                        <b>onClose</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="29" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleChange"></a>
+                        <b>toggleChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Definido em <a href="" data-line="28" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildChart"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildChart</b></span>
+                        <a href="#buildChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildChart()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="95"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="close"></a>
+                    <span class="name">
+                        <span ><b>close</b></span>
+                        <a href="#close"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>close()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="88"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatAccuracyText"></a>
+                    <span class="name">
+                        <span ><b>formatAccuracyText</b></span>
+                        <a href="#formatAccuracyText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatAccuracyText(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="142"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>code</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="open"></a>
+                    <span class="name">
+                        <span ><b>open</b></span>
+                        <a href="#open"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>open(context: <a href="../interfaces/ForecastObject.html" target="_self">ForecastObject</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="72"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>context</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ForecastObject.html" target="_self" >ForecastObject</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleInterval"></a>
+                    <span class="name">
+                        <span ><b>toggleInterval</b></span>
+                        <a href="#toggleInterval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleInterval(prevent?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="120"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>prevent</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Sim
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chart"></a>
+                    <span class="name">
+                        <span ><b>chart</b></span>
+                        <a href="#chart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Chart</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="63" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forecastChart"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>forecastChart</b></span>
+                        <a href="#forecastChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>ElementRef&lt;HTMLCanvasElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decoradores : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;forecastChart&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="26" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forecastContext"></a>
+                    <span class="name">
+                        <span ><b>forecastContext</b></span>
+                        <a href="#forecastContext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/ForecastContext.html" target="_self" >ForecastContext</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>{
+    labels: [],
+    datasets: [],
+    revenueAccuracyCod: &#x27;&#x27;,
+    expenseAccuracyCod: &#x27;&#x27;,
+    insightDate: &#x27;&#x27;,
+    errorMessage: &#x27;&#x27;,
+    loading: false,
+    hasError: false,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="31" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forecastModal"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>forecastModal</b></span>
+                        <a href="#forecastModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>PoModalComponent</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decoradores : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;forecastModal&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="25" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forecastObject"></a>
+                    <span class="name">
+                        <span ><b>forecastObject</b></span>
+                        <a href="#forecastObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/ForecastObject.html" target="_self" >ForecastObject</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>{
+    current_expenses: {},
+    current_revenues: {},
+    expense: {
+      accuracy: 0,
+      mapecategory: &#x27;&#x27;,
+      interval: [],
+      line: []
+    },
+    revenue: {
+      accuracy: 0,
+      mapecategory: &#x27;&#x27;,
+      interval: [],
+      line: []
+    },
+    mdmLastUpdated: &#x27;&#x27;,
+    Code: &#x27;&#x27;,
+    branches: &#x27;&#x27;,
+    periodType: &#x27;monthly&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="42" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="insightDate"></a>
+                    <span class="name">
+                        <span ><b>insightDate</b></span>
+                        <a href="#insightDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="66" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showInterval"></a>
+                    <span class="name">
+                        <span ><b>showInterval</b></span>
+                        <a href="#showInterval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="64" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchIntervalLabelPosition"></a>
+                    <span class="name">
+                        <span ><b>switchIntervalLabelPosition</b></span>
+                        <a href="#switchIntervalLabelPosition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>PoSwitchLabelPosition.Left</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="65" class="link-to-prism">projects/bo-lib/src/lib/components/forecast-modal/forecast-modal.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from &#x27;@angular/core&#x27;;
+import { PoModalComponent, PoModule, PoSwitchLabelPosition } from &#x27;@po-ui/ng-components&#x27;;
+import { Chart, ChartOptions } from &#x27;chart.js/auto&#x27;;
+import { ForecastTransformer } from &#x27;./util/forecast-transformer&#x27;;
+import { ChartOptionsBuilder } from &#x27;./util/chart-options.builder&#x27;;
+import { ForecastContext, ForecastObject } from &#x27;./interfaces/forecast-interface&#x27;;
+import { I18nService } from &#x27;../shared/services/i18n.service&#x27;;
+import { I18nPipe } from &quot;../shared/pipes/i18n.pipe&quot;;
+import { format } from &#x27;date-fns&#x27;;
+
+@Component({
+  selector: &#x27;bo-forecast-modal&#x27;,
+  templateUrl: &#x27;./forecast-modal.component.html&#x27;,
+  styleUrls: [&#x27;./forecast-modal.component.css&#x27;],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PoModule,
+    I18nPipe
+  ]
+})
+export class ForecastModalComponent {
+
+  @ViewChild(&#x27;forecastModal&#x27;) forecastModal!: PoModalComponent;
+  @ViewChild(&#x27;forecastChart&#x27;) forecastChart!: ElementRef&lt;HTMLCanvasElement&gt;;
+
+  @Output() toggleChange &#x3D; new EventEmitter&lt;&#x27;visible&#x27; | &#x27;hidden&#x27;&gt;();
+  @Output() onClose &#x3D; new EventEmitter&lt;&#x27;closed&#x27;&gt;();
+
+  forecastContext: ForecastContext &#x3D; {
+    labels: [],
+    datasets: [],
+    revenueAccuracyCod: &#x27;&#x27;,
+    expenseAccuracyCod: &#x27;&#x27;,
+    insightDate: &#x27;&#x27;,
+    errorMessage: &#x27;&#x27;,
+    loading: false,
+    hasError: false,
+  };
+  
+  forecastObject: ForecastObject &#x3D; {
+    current_expenses: {},
+    current_revenues: {},
+    expense: {
+      accuracy: 0,
+      mapecategory: &#x27;&#x27;,
+      interval: [],
+      line: []
+    },
+    revenue: {
+      accuracy: 0,
+      mapecategory: &#x27;&#x27;,
+      interval: [],
+      line: []
+    },
+    mdmLastUpdated: &#x27;&#x27;,
+    Code: &#x27;&#x27;,
+    branches: &#x27;&#x27;,
+    periodType: &#x27;monthly&#x27;
+  };
+
+  chart!: Chart;
+  showInterval &#x3D; false;
+  switchIntervalLabelPosition &#x3D; PoSwitchLabelPosition.Left;
+  insightDate: string &#x3D; &#x27;&#x27;;
+
+  constructor(
+    private i18nService: I18nService
+  ) {}
+
+  open(context: ForecastObject): void {
+    this.forecastObject &#x3D; context;
+    const transformer &#x3D; new ForecastTransformer(this.i18nService);
+    this.forecastContext &#x3D; transformer.toContext(context);
+    
+    if (context.mdmLastUpdated) {
+      this.insightDate &#x3D; format(
+        new Date(context.mdmLastUpdated),
+        &#x27;dd/LL/yyyy hh:mm:ss&#x27;
+      );
+    }
+
+    this.forecastModal.open();
+    setTimeout(() &#x3D;&gt; this.buildChart(), 200);
+  }
+
+  close(): void {
+    if (this.chart) this.chart.destroy();
+    this.onClose.emit(&#x27;closed&#x27;);
+    this.forecastModal.close();
+    this.showInterval &#x3D; false;
+  }
+
+  private buildChart(): void {
+    if (!this.forecastContext || !this.forecastChart) return;
+
+    const ctx &#x3D; this.forecastChart.nativeElement.getContext(&#x27;2d&#x27;);
+    if (!ctx) return;
+
+    const builder &#x3D; new ChartOptionsBuilder(this.i18nService);
+    const options: ChartOptions&lt;&#x27;line&#x27;&gt; &#x3D; builder.build(this.forecastContext);
+
+    if (this.chart) this.chart.destroy();
+    this.chart &#x3D; new Chart(ctx, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: this.forecastContext.labels,
+        datasets: this.forecastContext.datasets
+      },
+      options
+    });
+
+    setTimeout(() &#x3D;&gt; {
+      this.toggleInterval(true);
+      this.forecastContext.loading &#x3D; false;
+    }, 200);
+  }
+
+  toggleInterval(prevent?: boolean): void {
+    if (!this.chart) {
+      return;
+    }
+
+    if(!prevent){
+      this.toggleChange.emit(this.showInterval ? &#x27;visible&#x27; : &#x27;hidden&#x27;);
+    }
+
+    const intervalIndexes &#x3D; [4, 5, 6, 7];
+
+    intervalIndexes.forEach(i &#x3D;&gt; {
+      this.chart.data.datasets[i].hidden &#x3D; !this.showInterval;
+    });
+
+    if (this.chart.options.scales &amp;&amp; this.chart.options.scales[&#x27;y&#x27;]) {
+      this.chart.options.scales[&#x27;y&#x27;].min &#x3D; 0;
+    }
+
+    this.chart.update(&#x27;active&#x27;);
+  }
+
+  formatAccuracyText(code: string): string {
+    const map: Record&lt;string, string&gt; &#x3D; {
+      &#x27;01&#x27;: this.i18nService.t(&#x27;excellent&#x27;), 
+      &#x27;02&#x27;: this.i18nService.t(&#x27;good&#x27;), 
+      &#x27;03&#x27;: this.i18nService.t(&#x27;fair&#x27;),
+      &#x27;04&#x27;: this.i18nService.t(&#x27;low&#x27;), 
+    };
+    return map[code] ?? &#x27;N/A&#x27;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;po-modal #forecastModal p-size&#x3D;&quot;xl&quot; [p-hide-close]&#x3D;&quot;true&quot; [p-title]&#x3D;&quot;&#x27;modalTitle&#x27; | i18n&quot;&gt;
+
+  &lt;po-container class&#x3D;&quot;po-md-12 po-lg-12 po-mb-1 forecast-container&quot; p-no-shadow&#x3D;&quot;true&quot;&gt;
+    &lt;section class&#x3D;&quot;po-row&quot;&gt;
+      &lt;div class&#x3D;&quot;columnDef po-md-6 po-lg-6&quot; *ngIf&#x3D;&quot;!forecastContext.loading&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;!forecastContext.hasError&quot;&gt;
+          &lt;po-switch 
+            class&#x3D;&quot;bold-label&quot; 
+            [p-value]&#x3D;&quot;showInterval&quot; 
+            [p-label-off]&#x3D;&quot;&#x27;confidenceInterval&#x27; | i18n&quot;
+            [p-label-on]&#x3D;&quot;&#x27;confidenceInterval&#x27; | i18n&quot; 
+            [p-label-position]&#x3D;&quot;switchIntervalLabelPosition&quot;
+            (p-change)&#x3D;&quot;showInterval &#x3D; $event; toggleInterval()&quot;&gt;
+          &lt;/po-switch&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;columnDefAccuracies po-md-6 po-lg-6&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;!forecastContext.hasError&quot; class&#x3D;&quot;accuracies&quot; [class.hidden]&#x3D;&quot;forecastContext.loading&quot;&gt;
+          &lt;span&gt;{{ &#x27;accuracyRevenue&#x27; | i18n }} &lt;/span&gt;
+          &lt;span
+            [ngClass]&#x3D;&quot;{&#x27;green&#x27;: forecastContext.revenueAccuracyCod&#x3D;&#x3D;&#x27;01&#x27;, &#x27;lgreen&#x27;: forecastContext.revenueAccuracyCod&#x3D;&#x3D;&#x27;02&#x27;, &#x27;yellow&#x27;: forecastContext.revenueAccuracyCod&#x3D;&#x3D;&#x27;03&#x27;, &#x27;red&#x27;: forecastContext.revenueAccuracyCod&#x3D;&#x3D;&#x27;04&#x27;, &#x27;gray&#x27;: forecastContext.revenueAccuracyCod&#x3D;&#x3D;&#x27;&#x27;}&quot;&gt;
+            {{ formatAccuracyText(forecastContext.revenueAccuracyCod || &#x27;&#x27;) }}
+          &lt;/span&gt;
+          &lt;br&gt;
+          &lt;span&gt;{{ &#x27;accuracyExpense&#x27; | i18n }} &lt;/span&gt;
+          &lt;span
+            [ngClass]&#x3D;&quot;{&#x27;green&#x27;: forecastContext.expenseAccuracyCod&#x3D;&#x3D;&#x27;01&#x27;, &#x27;lgreen&#x27;: forecastContext.expenseAccuracyCod&#x3D;&#x3D;&#x27;02&#x27;, &#x27;yellow&#x27;: forecastContext.expenseAccuracyCod&#x3D;&#x3D;&#x27;03&#x27;, &#x27;red&#x27;: forecastContext.expenseAccuracyCod&#x3D;&#x3D;&#x27;04&#x27;, &#x27;gray&#x27;: forecastContext.expenseAccuracyCod&#x3D;&#x3D;&#x27;&#x27;}&quot;&gt;
+            {{ formatAccuracyText(forecastContext.expenseAccuracyCod || &#x27;&#x27;) }}
+          &lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div *ngIf&#x3D;&quot;!forecastContext.hasError&quot; class&#x3D;&quot;aboutAccuracies&quot; [class.hidden]&#x3D;&quot;forecastContext.loading&quot;&gt;
+          &lt;a href&#x3D;&quot;https://tdn.totvs.com/display/PROT/Insight+Financeiro&quot; target&#x3D;&quot;_blank&quot;&gt;
+            &lt;span [p-tooltip]&#x3D;&quot;&#x27;aboutAccuracy&#x27; | i18n&quot; class&#x3D;&quot;p-icon-help po-icon po-icon-help&quot;&gt;&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div *ngIf&#x3D;&quot;!forecastContext.hasError&quot; class&#x3D;&quot;columnDef forecast-canvas&quot;&gt;
+        &lt;canvas #forecastChart id&#x3D;&quot;forecastChart&quot; [style.opacity]&#x3D;&quot;forecastContext.loading ? 0 : 1&quot;&gt;&lt;/canvas&gt;
+      &lt;/div&gt;
+
+      &lt;div *ngIf&#x3D;&quot;forecastContext.hasError&quot; class&#x3D;&quot;columnDef forecast-err-container&quot;
+        [class.hidden]&#x3D;&quot;forecastContext.loading&quot;&gt;
+        &lt;span class&#x3D;&quot;forecast-err&quot;&gt;
+          &lt;i class&#x3D;&#x27; an an-warning-circle po-text-center&#x27;&gt;&lt;/i&gt;
+          {{ forecastContext.errorMessage }}
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/po-container&gt;
+
+  &lt;po-modal-footer&gt;
+    &lt;div *ngIf&#x3D;&quot;!forecastContext.hasError&quot; class&#x3D;&quot;insight-date&quot; [class.hidden]&#x3D;&quot;forecastContext.loading&quot;&gt;
+      &lt;span&gt;{{ &#x27;insightDate&#x27; | i18n }} {{ insightDate }}&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;po-button [p-label]&#x3D;&quot;&#x27;close&#x27; | i18n&quot; p-kind&#x3D;&quot;primary&quot; (p-click)&#x3D;&quot;close()&quot;&gt;&lt;/po-button&gt;
+  &lt;/po-modal-footer&gt;
+
+  &lt;po-loading-overlay [p-screen-lock]&#x3D;&quot;true&quot; *ngIf&#x3D;&quot;forecastContext.loading&quot; class&#x3D;&quot;loadingGraph lcontainer&quot;&gt;
+  &lt;/po-loading-overlay&gt;
+&lt;/po-modal&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./forecast-modal.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+}
+
+/* Layout principal */
+.forecast-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnDef {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.columnDefAccuracies {
+  display: flex;
+  align-items: start;
+  justify-content: end;
+}
+
+.forecast-canvas {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  max-width: 100% !important;
+  height: 300px !important;
+}
+
+.accuracies {
+  font-size: 14px;
+  line-height: 19px;
+  text-align: right;
+}
+
+.green {
+  color: #00a336;
+}
+
+.lgreen {
+  color: #8ac926;
+}
+
+.yellow {
+  color: #f7c33ff9;
+}
+
+.red {
+  color: #d90429;
+}
+
+.gray {
+  color: #999999;
+}
+
+/* Info help icon */
+.aboutAccuracies {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.aboutAccuracies a {
+  text-decoration: none;
+}
+
+/* Error message */
+.forecast-err-container {
+  padding: 12px;
+  text-align: center;
+}
+
+.forecast-err i {
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+/* Insight Date */
+.insight-date {
+  font-size: 12px;
+  color: var(--color-neutral-dark-80);
+  position: absolute;
+  left: 15px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Hidden helper */
+.hidden {
+  display: none !important;
+}
+
+.p-icon-help {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-neutral-dark-90);
+}
+
+:host ::ng-deep .po-modal-body {
+  max-height: calc(100vh - 10rem);
+  padding: 1em;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento HTML</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento HTML com diretiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><po-modal #forecastModal p-size="xl" [p-hide-close]="true" [p-title]="\'modalTitle\' | i18n">  <po-container class="po-md-12 po-lg-12 po-mb-1 forecast-container" p-no-shadow="true">    <section class="po-row">      <div class="columnDef po-md-6 po-lg-6" *ngIf="!forecastContext.loading">        <div *ngIf="!forecastContext.hasError">          <po-switch             class="bold-label"             [p-value]="showInterval"             [p-label-off]="\'confidenceInterval\' | i18n"            [p-label-on]="\'confidenceInterval\' | i18n"             [p-label-position]="switchIntervalLabelPosition"            (p-change)="showInterval = $event; toggleInterval()">          </po-switch>        </div>      </div>      <div class="columnDefAccuracies po-md-6 po-lg-6">        <div *ngIf="!forecastContext.hasError" class="accuracies" [class.hidden]="forecastContext.loading">          <span>{{ \'accuracyRevenue\' | i18n }} </span>          <span            [ngClass]="{\'green\': forecastContext.revenueAccuracyCod==\'01\', \'lgreen\': forecastContext.revenueAccuracyCod==\'02\', \'yellow\': forecastContext.revenueAccuracyCod==\'03\', \'red\': forecastContext.revenueAccuracyCod==\'04\', \'gray\': forecastContext.revenueAccuracyCod==\'\'}">            {{ formatAccuracyText(forecastContext.revenueAccuracyCod || \'\') }}          </span>          <br>          <span>{{ \'accuracyExpense\' | i18n }} </span>          <span            [ngClass]="{\'green\': forecastContext.expenseAccuracyCod==\'01\', \'lgreen\': forecastContext.expenseAccuracyCod==\'02\', \'yellow\': forecastContext.expenseAccuracyCod==\'03\', \'red\': forecastContext.expenseAccuracyCod==\'04\', \'gray\': forecastContext.expenseAccuracyCod==\'\'}">            {{ formatAccuracyText(forecastContext.expenseAccuracyCod || \'\') }}          </span>        </div>        <div *ngIf="!forecastContext.hasError" class="aboutAccuracies" [class.hidden]="forecastContext.loading">          <a href="https://tdn.totvs.com/display/PROT/Insight+Financeiro" target="_blank">            <span [p-tooltip]="\'aboutAccuracy\' | i18n" class="p-icon-help po-icon po-icon-help"></span>          </a>        </div>      </div>      <div *ngIf="!forecastContext.hasError" class="columnDef forecast-canvas">        <canvas #forecastChart id="forecastChart" [style.opacity]="forecastContext.loading ? 0 : 1"></canvas>      </div>      <div *ngIf="forecastContext.hasError" class="columnDef forecast-err-container"        [class.hidden]="forecastContext.loading">        <span class="forecast-err">          <i class=\' an an-warning-circle po-text-center\'></i>          {{ forecastContext.errorMessage }}        </span>      </div>    </section>  </po-container>  <po-modal-footer>    <div *ngIf="!forecastContext.hasError" class="insight-date" [class.hidden]="forecastContext.loading">      <span>{{ \'insightDate\' | i18n }} {{ insightDate }}</span>    </div>    <po-button [p-label]="\'close\' | i18n" p-kind="primary" (p-click)="close()"></po-button>  </po-modal-footer>  <po-loading-overlay [p-screen-lock]="true" *ngIf="forecastContext.loading" class="loadingGraph lcontainer">  </po-loading-overlay></po-modal></div>'
+    var COMPONENTS = [{'name': 'ChartsComponent', 'selector': 'bo-charts'},{'name': 'ChatComponent', 'selector': 'bo-chat'},{'name': 'DrilldownComponent', 'selector': 'bo-drilldown'},{'name': 'ExportButtonComponent', 'selector': 'bo-export-button'},{'name': 'ForecastModalComponent', 'selector': 'bo-forecast-modal'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ForecastModalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> resultados correspondentes "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ForecastModalComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

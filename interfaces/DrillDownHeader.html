@@ -98,7 +98,7 @@
   <li class="breadcrumb-item">Interfaces</li>
   <li class="breadcrumb-item"
   >
-  DrillDownData</li>
+  DrillDownHeader</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -141,21 +141,28 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#hasNext" 
+                                        <a href="#label" 
 >
-                                            hasNext
+                                            label
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#header" 
+                                        <a href="#property" 
 >
-                                            header
+                                            property
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#items" 
+                                            <span class="modifier">Opcional</span>
+                                        <a href="#showFilter" 
 >
-                                            items
+                                            showFilter
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#visible" 
+>
+                                            visible
                                         </a>
                                 </li>
                             </ul>
@@ -173,9 +180,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="hasNext"></a>
-                                        <span class="name "><b>hasNext</b>
-                                            <a href="#hasNext">
+                                        <a name="label"></a>
+                                        <span class="name "><b>label</b>
+                                            <a href="#label">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -183,7 +190,73 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>hasNext:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>label:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="property"></a>
+                                        <span class="name "><b>property</b>
+                                            <a href="#property">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>property:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="showFilter"></a>
+                                        <span class="name "><b>showFilter</b>
+                                            <a href="#showFilter">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>showFilter:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -196,52 +269,24 @@
                                         </td>
                                     </tr>
 
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="header"></a>
-                                        <span class="name "><b>header</b>
-                                            <a href="#header">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>header:         <code><a href="../interfaces/DrillDownHeader.html" target="_self" >DrillDownHeader[]</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Tipo : </i>        <code><a href="../interfaces/DrillDownHeader.html" target="_self" >DrillDownHeader[]</a></code>
-
+                                            <i>Opcional</i>
                                         </td>
                                     </tr>
 
 
 
 
-
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="items"></a>
-                                        <span class="name "><b>items</b>
-                                            <a href="#items">
+                                        <a name="visible"></a>
+                                        <span class="name "><b>visible</b>
+                                            <a href="#visible">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -249,7 +294,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>items:     <code>any[]</code>
+                                        <code>visible:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -257,7 +302,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Tipo : </i>    <code>any[]</code>
+                                            <i>Tipo : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                                         </td>
                                     </tr>
@@ -335,7 +380,7 @@ export interface ChatMessage {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'DrillDownData.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'DrillDownHeader.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

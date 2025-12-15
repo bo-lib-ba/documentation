@@ -1,0 +1,764 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Backoffice Lib Docs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Backoffice Lib Docs</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Digite para pesquisar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injetáveis</li>
+  <li class="breadcrumb-item" >I18nService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Arquivo</h3>
+        </p>
+        <p class="comment">
+            <code>projects/bo-lib/src/lib/components/shared/services/i18n.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentLang" >currentLang</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#literals" >literals</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#setLanguage" >setLanguage</a>
+                            </li>
+                            <li>
+                                <a href="#t" >t</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Construtor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="130" class="link-to-prism">projects/bo-lib/src/lib/components/shared/services/i18n.service.ts:130</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLanguage"></a>
+                    <span class="name">
+                        <span ><b>setLanguage</b></span>
+                        <a href="#setLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setLanguage(lang: "pt" | "es" | "en")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="142"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/shared/services/i18n.service.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lang</td>
+                                            <td>
+                                                        <code>&quot;pt&quot; | &quot;es&quot; | &quot;en&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="t"></a>
+                    <span class="name">
+                        <span ><b>t</b></span>
+                        <a href="#t"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>t(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido em <a href="" data-line="146"
+                                    class="link-to-prism">projects/bo-lib/src/lib/components/shared/services/i18n.service.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parâmetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nome</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Não
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Retorna : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentLang"></a>
+                    <span class="name">
+                        <span ><b>currentLang</b></span>
+                        <a href="#currentLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>&quot;pt&quot; | &quot;es&quot; | &quot;en&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>&#x27;pt&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="7" class="link-to-prism">projects/bo-lib/src/lib/components/shared/services/i18n.service.ts:7</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="literals"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>literals</b></span>
+                        <a href="#literals"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>Record&lt;string | Record&lt;string, string&gt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor padrão : </i><code>{
+    pt: {
+      revenues: &#x27;Entradas&#x27;,
+      expenses: &#x27;Saídas&#x27;,
+      revenueForecast: &#x27;Previsão de Entradas&#x27;,
+      expenseForecast: &#x27;Previsão de Saídas&#x27;,
+      revenueMax: &#x27;Intervalo de Confiança de Receita Máximo&#x27;,
+      revenueMin: &#x27;Intervalo de Confiança de Receita Mínimo&#x27;,
+      expenseMax: &#x27;Intervalo de Confiança de Despesas Máximo&#x27;,
+      expenseMin: &#x27;Intervalo de Confiança de Despesas Mínimo&#x27;,
+      confidenceInterval: &#x27;Intervalo de confiança&#x27;,
+      accuracyRevenue: &#x27;Acurácia de entradas:&#x27;,
+      accuracyExpense: &#x27;Acurácia de saídas:&#x27;,
+      insightDate: &#x27;Data do Insight:&#x27;,
+      close: &#x27;Fechar&#x27;,
+      aboutAccuracy: &#x27;Sobre a acurácia&#x27;,
+      excellent: &#x27;Excelente&#x27;,
+      good: &#x27;Boa&#x27;,
+      fair: &#x27;Razoável&#x27;,
+      low: &#x27;Baixa&#x27;,
+      modalTitle: &#x27;PREVISÃO FLUXO DE CAIXA&#x27;,
+      thousand: &#x27;Mil&#x27;,
+      million: &#x27;Milhão&#x27;,
+      millions: &#x27;Milhões&#x27;,
+      billion: &#x27;Bilhão&#x27;,
+      billions: &#x27;Bilhões&#x27;,
+      trillion: &#x27;Trilhão&#x27;,
+      trillions: &#x27;Trilhões&#x27;,
+      jan: &quot;Jan&quot;,
+      feb: &quot;Fev&quot;,
+      mar: &quot;Mar&quot;,
+      apr: &quot;Abr&quot;,
+      may: &quot;Mai&quot;,
+      jun: &quot;Jun&quot;,
+      jul: &quot;Jul&quot;,
+      aug: &quot;Ago&quot;,
+      sep: &quot;Set&quot;,
+      oct: &quot;Out&quot;,
+      nov: &quot;Nov&quot;,
+      dec: &quot;Dez&quot;
+    },
+    es: {
+      revenues: &#x27;Entradas&#x27;,
+      expenses: &#x27;Salidas&#x27;,
+      revenueForecast: &#x27;Previsión de Entradas&#x27;,
+      expenseForecast: &#x27;Previsión de Salidas&#x27;,
+      revenueMax: &#x27;Intervalo de Confianza de Ingresos Máximo&#x27;,
+      revenueMin: &#x27;Intervalo de Confianza de Ingresos Mínimo&#x27;,
+      expenseMax: &#x27;Intervalo de Confianza de Gastos Máximo&#x27;,
+      expenseMin: &#x27;Intervalo de Confianza de Gastos Mínimo&#x27;,
+      confidenceInterval: &#x27;Intervalo de confianza&#x27;,
+      accuracyRevenue: &#x27;Precisión de entradas:&#x27;,
+      accuracyExpense: &#x27;Precisión de salidas:&#x27;,
+      insightDate: &#x27;Fecha del Insight:&#x27;,
+      close: &#x27;Cerrar&#x27;,
+      aboutAccuracy: &#x27;Sobre la precisión&#x27;,
+      excellent: &#x27;Excelente&#x27;,
+      good: &#x27;Buena&#x27;,
+      fair: &#x27;Razonable&#x27;,
+      low: &#x27;Baja&#x27;,
+      modalTitle: &#x27;PREVISION FLUJO DE CAJA&#x27;,
+      thousand: &quot;Mil&quot;,
+      million: &#x27;Millón&#x27;,
+      millions: &#x27;Millones&#x27;,
+      billion: &#x27;Billón&#x27;,
+      billions: &#x27;Billones&#x27;,
+      trillion: &#x27;Trillón&#x27;,
+      trillions: &#x27;Trillones&#x27;,
+      jan: &quot;Ene&quot;,
+      feb: &quot;Feb&quot;,
+      mar: &quot;Mar&quot;,
+      apr: &quot;Abr&quot;,
+      may: &quot;May&quot;,
+      jun: &quot;Jun&quot;,
+      jul: &quot;Jul&quot;,
+      aug: &quot;Ago&quot;,
+      sep: &quot;Sep&quot;,
+      oct: &quot;Oct&quot;,
+      nov: &quot;Nov&quot;,
+      dec: &quot;Dic&quot;
+    },
+    en: {
+      revenues: &#x27;Revenues&#x27;,
+      expenses: &#x27;Expenses&#x27;,
+      revenueForecast: &#x27;Revenue Forecast&#x27;,
+      expenseForecast: &#x27;Expense Forecast&#x27;,
+      revenueMax: &#x27;Revenue Max Confidence Interval&#x27;,
+      revenueMin: &#x27;Revenue Min Confidence Interval&#x27;,
+      expenseMax: &#x27;Expense Max Confidence Interval&#x27;,
+      expenseMin: &#x27;Expense Min Confidence Interval&#x27;,
+      confidenceInterval: &#x27;Confidence interval&#x27;,
+      accuracyRevenue: &#x27;Revenue accuracy:&#x27;,
+      accuracyExpense: &#x27;Expense accuracy:&#x27;,
+      insightDate: &#x27;Insight date:&#x27;,
+      close: &#x27;Close&#x27;,
+      aboutAccuracy: &#x27;About accuracy&#x27;,
+      excellent: &#x27;Excellent&#x27;,
+      good: &#x27;Good&#x27;,
+      fair: &#x27;Fair&#x27;,
+      low: &#x27;Low&#x27;,
+      modalTitle: &#x27;CASH FLOW FORECAST&#x27;,
+      thousand: &#x27;Thousand&#x27;,
+      million: &#x27;Million&#x27;,
+      millions: &#x27;Millions&#x27;,
+      billion: &#x27;Billion&#x27;,
+      billions: &#x27;Billions&#x27;,
+      trillion: &#x27;Trillon&#x27;,
+      trillions: &#x27;Trillons&#x27;,
+      jan: &quot;Jan&quot;,
+      feb: &quot;Feb&quot;,
+      mar: &quot;Mar&quot;,
+      apr: &quot;Apr&quot;,
+      may: &quot;May&quot;,
+      jun: &quot;Jun&quot;,
+      jul: &quot;Jul&quot;,
+      aug: &quot;Aug&quot;,
+      sep: &quot;Sep&quot;,
+      oct: &quot;Oct&quot;,
+      nov: &quot;Nov&quot;,
+      dec: &quot;Dec&quot;
+    }
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido em <a href="" data-line="9" class="link-to-prism">projects/bo-lib/src/lib/components/shared/services/i18n.service.ts:9</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class I18nService {
+  currentLang: &#x27;pt&#x27; | &#x27;es&#x27; | &#x27;en&#x27; &#x3D; &#x27;pt&#x27;;
+
+  private literals: Record&lt;string, Record&lt;string, string&gt;&gt; &#x3D; {
+    pt: {
+      revenues: &#x27;Entradas&#x27;,
+      expenses: &#x27;Saídas&#x27;,
+      revenueForecast: &#x27;Previsão de Entradas&#x27;,
+      expenseForecast: &#x27;Previsão de Saídas&#x27;,
+      revenueMax: &#x27;Intervalo de Confiança de Receita Máximo&#x27;,
+      revenueMin: &#x27;Intervalo de Confiança de Receita Mínimo&#x27;,
+      expenseMax: &#x27;Intervalo de Confiança de Despesas Máximo&#x27;,
+      expenseMin: &#x27;Intervalo de Confiança de Despesas Mínimo&#x27;,
+      confidenceInterval: &#x27;Intervalo de confiança&#x27;,
+      accuracyRevenue: &#x27;Acurácia de entradas:&#x27;,
+      accuracyExpense: &#x27;Acurácia de saídas:&#x27;,
+      insightDate: &#x27;Data do Insight:&#x27;,
+      close: &#x27;Fechar&#x27;,
+      aboutAccuracy: &#x27;Sobre a acurácia&#x27;,
+      excellent: &#x27;Excelente&#x27;,
+      good: &#x27;Boa&#x27;,
+      fair: &#x27;Razoável&#x27;,
+      low: &#x27;Baixa&#x27;,
+      modalTitle: &#x27;PREVISÃO FLUXO DE CAIXA&#x27;,
+      thousand: &#x27;Mil&#x27;,
+      million: &#x27;Milhão&#x27;,
+      millions: &#x27;Milhões&#x27;,
+      billion: &#x27;Bilhão&#x27;,
+      billions: &#x27;Bilhões&#x27;,
+      trillion: &#x27;Trilhão&#x27;,
+      trillions: &#x27;Trilhões&#x27;,
+      jan: &quot;Jan&quot;,
+      feb: &quot;Fev&quot;,
+      mar: &quot;Mar&quot;,
+      apr: &quot;Abr&quot;,
+      may: &quot;Mai&quot;,
+      jun: &quot;Jun&quot;,
+      jul: &quot;Jul&quot;,
+      aug: &quot;Ago&quot;,
+      sep: &quot;Set&quot;,
+      oct: &quot;Out&quot;,
+      nov: &quot;Nov&quot;,
+      dec: &quot;Dez&quot;
+    },
+    es: {
+      revenues: &#x27;Entradas&#x27;,
+      expenses: &#x27;Salidas&#x27;,
+      revenueForecast: &#x27;Previsión de Entradas&#x27;,
+      expenseForecast: &#x27;Previsión de Salidas&#x27;,
+      revenueMax: &#x27;Intervalo de Confianza de Ingresos Máximo&#x27;,
+      revenueMin: &#x27;Intervalo de Confianza de Ingresos Mínimo&#x27;,
+      expenseMax: &#x27;Intervalo de Confianza de Gastos Máximo&#x27;,
+      expenseMin: &#x27;Intervalo de Confianza de Gastos Mínimo&#x27;,
+      confidenceInterval: &#x27;Intervalo de confianza&#x27;,
+      accuracyRevenue: &#x27;Precisión de entradas:&#x27;,
+      accuracyExpense: &#x27;Precisión de salidas:&#x27;,
+      insightDate: &#x27;Fecha del Insight:&#x27;,
+      close: &#x27;Cerrar&#x27;,
+      aboutAccuracy: &#x27;Sobre la precisión&#x27;,
+      excellent: &#x27;Excelente&#x27;,
+      good: &#x27;Buena&#x27;,
+      fair: &#x27;Razonable&#x27;,
+      low: &#x27;Baja&#x27;,
+      modalTitle: &#x27;PREVISION FLUJO DE CAJA&#x27;,
+      thousand: &quot;Mil&quot;,
+      million: &#x27;Millón&#x27;,
+      millions: &#x27;Millones&#x27;,
+      billion: &#x27;Billón&#x27;,
+      billions: &#x27;Billones&#x27;,
+      trillion: &#x27;Trillón&#x27;,
+      trillions: &#x27;Trillones&#x27;,
+      jan: &quot;Ene&quot;,
+      feb: &quot;Feb&quot;,
+      mar: &quot;Mar&quot;,
+      apr: &quot;Abr&quot;,
+      may: &quot;May&quot;,
+      jun: &quot;Jun&quot;,
+      jul: &quot;Jul&quot;,
+      aug: &quot;Ago&quot;,
+      sep: &quot;Sep&quot;,
+      oct: &quot;Oct&quot;,
+      nov: &quot;Nov&quot;,
+      dec: &quot;Dic&quot;
+    },
+    en: {
+      revenues: &#x27;Revenues&#x27;,
+      expenses: &#x27;Expenses&#x27;,
+      revenueForecast: &#x27;Revenue Forecast&#x27;,
+      expenseForecast: &#x27;Expense Forecast&#x27;,
+      revenueMax: &#x27;Revenue Max Confidence Interval&#x27;,
+      revenueMin: &#x27;Revenue Min Confidence Interval&#x27;,
+      expenseMax: &#x27;Expense Max Confidence Interval&#x27;,
+      expenseMin: &#x27;Expense Min Confidence Interval&#x27;,
+      confidenceInterval: &#x27;Confidence interval&#x27;,
+      accuracyRevenue: &#x27;Revenue accuracy:&#x27;,
+      accuracyExpense: &#x27;Expense accuracy:&#x27;,
+      insightDate: &#x27;Insight date:&#x27;,
+      close: &#x27;Close&#x27;,
+      aboutAccuracy: &#x27;About accuracy&#x27;,
+      excellent: &#x27;Excellent&#x27;,
+      good: &#x27;Good&#x27;,
+      fair: &#x27;Fair&#x27;,
+      low: &#x27;Low&#x27;,
+      modalTitle: &#x27;CASH FLOW FORECAST&#x27;,
+      thousand: &#x27;Thousand&#x27;,
+      million: &#x27;Million&#x27;,
+      millions: &#x27;Millions&#x27;,
+      billion: &#x27;Billion&#x27;,
+      billions: &#x27;Billions&#x27;,
+      trillion: &#x27;Trillon&#x27;,
+      trillions: &#x27;Trillons&#x27;,
+      jan: &quot;Jan&quot;,
+      feb: &quot;Feb&quot;,
+      mar: &quot;Mar&quot;,
+      apr: &quot;Apr&quot;,
+      may: &quot;May&quot;,
+      jun: &quot;Jun&quot;,
+      jul: &quot;Jul&quot;,
+      aug: &quot;Aug&quot;,
+      sep: &quot;Sep&quot;,
+      oct: &quot;Oct&quot;,
+      nov: &quot;Nov&quot;,
+      dec: &quot;Dec&quot;
+    }
+  };
+
+  constructor(){
+    const sysLang &#x3D; sessionStorage.getItem(&#x27;ProIdiom&#x27;)?.substring(0, 2) as &#x27;pt&#x27; | &#x27;es&#x27; | &#x27;en&#x27; | undefined;
+    if (sysLang) {
+      this.setLanguage(sysLang);
+    } else {
+      const ln &#x3D; &#x27;pt&#x27;;
+      this.setLanguage(ln);
+    }
+  }
+
+  setLanguage(lang: &#x27;pt&#x27; | &#x27;es&#x27; | &#x27;en&#x27;) {
+    this.currentLang &#x3D; lang;
+  }
+
+  t(key: string): string {
+    return this.literals[this.currentLang]?.[key] ?? key;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> resultados correspondentes "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Nenhum resultado correspondente "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'I18nService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
